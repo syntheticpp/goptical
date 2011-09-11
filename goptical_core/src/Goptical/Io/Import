@@ -1,0 +1,9 @@
+
+#include "Goptical/Io/import.hh"
+//#include "Goptical/Io/import.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::Import;
+  }
+}

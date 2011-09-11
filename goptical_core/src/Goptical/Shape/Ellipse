@@ -1,0 +1,10 @@
+
+#include "Goptical/Shape/ellipse.hh"
+#include "Goptical/Shape/ellipse.hxx"
+
+namespace Goptical {
+  namespace Shape {
+    using _Goptical::Shape::Ellipse;
+  }
+}
+

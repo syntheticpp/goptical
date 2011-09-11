@@ -1,0 +1,10 @@
+
+#include "Goptical/Analysis/rayfan.hh"
+#include "Goptical/Analysis/rayfan.hxx"
+
+namespace Goptical {
+  namespace Analysis {
+    using _Goptical::Analysis::RayFan;
+  }
+}
+

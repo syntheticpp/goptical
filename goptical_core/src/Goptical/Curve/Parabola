@@ -1,0 +1,10 @@
+
+#include "Goptical/Curve/parabola.hh"
+#include "Goptical/Curve/parabola.hxx"
+
+namespace Goptical {
+  namespace Curve {
+    using _Goptical::Curve::Parabola;
+  }
+}
+

@@ -1,0 +1,9 @@
+
+#include "Goptical/Io/renderer_opengl.hh"
+#include "Goptical/Io/renderer_opengl.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::RendererOpengl;
+  }
+}

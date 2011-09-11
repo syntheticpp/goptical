@@ -1,0 +1,10 @@
+
+#include "Goptical/Io/renderer_x3d.hh"
+#include "Goptical/Io/renderer_x3d.hxx"
+
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::RendererX3d;
+  }
+}

@@ -1,0 +1,10 @@
+
+#include "Goptical/Math/quaternion.hh"
+#include "Goptical/Math/quaternion.hxx"
+
+namespace Goptical {
+  namespace Math {
+    using _Goptical::Math::Quaternion;
+  }
+}
+

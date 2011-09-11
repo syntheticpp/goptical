@@ -1,0 +1,9 @@
+
+#include "Goptical/Io/renderer_svg.hh"
+#include "Goptical/Io/renderer_svg.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::RendererSvg;
+  }
+}

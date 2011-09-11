@@ -1,0 +1,22 @@
+
+#include "Goptical/Io/rgb.hh"
+#include "Goptical/Io/rgb.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::Rgb;
+
+    using _Goptical::Io::rgb_black;
+    using _Goptical::Io::rgb_red;
+    using _Goptical::Io::rgb_green;
+    using _Goptical::Io::rgb_blue;
+    using _Goptical::Io::rgb_yellow;
+    using _Goptical::Io::rgb_cyan;
+    using _Goptical::Io::rgb_magenta;
+    using _Goptical::Io::rgb_gray;
+    using _Goptical::Io::rgb_white;
+    using _Goptical::Io::rgb_table_size;
+    using _Goptical::Io::rgb_table;
+  }
+}
+

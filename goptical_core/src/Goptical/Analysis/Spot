@@ -1,0 +1,10 @@
+
+#include "Goptical/Analysis/spot.hh"
+#include "Goptical/Analysis/spot.hxx"
+
+namespace Goptical {
+  namespace Analysis {
+    using _Goptical::Analysis::Spot;
+  }
+}
+

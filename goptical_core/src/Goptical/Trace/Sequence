@@ -1,0 +1,10 @@
+
+#include "Goptical/Trace/sequence.hh"
+#include "Goptical/Trace/sequence.hxx"
+
+namespace Goptical {
+  namespace Trace {
+    using _Goptical::Trace::Sequence;
+  }
+}
+

@@ -1,0 +1,10 @@
+
+#include "Goptical/Analysis/focus.hh"
+#include "Goptical/Analysis/focus.hxx"
+
+namespace Goptical {
+  namespace Analysis {
+    using _Goptical::Analysis::Focus;
+  }
+}
+

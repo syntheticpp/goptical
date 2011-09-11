@@ -1,0 +1,10 @@
+
+#include "Goptical/Material/dielectric.hh"
+#include "Goptical/Material/dielectric.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::Dielectric;
+  }
+}
+

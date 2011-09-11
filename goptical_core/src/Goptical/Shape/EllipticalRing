@@ -1,0 +1,10 @@
+
+#include "Goptical/Shape/elliptical_ring.hh"
+#include "Goptical/Shape/elliptical_ring.hxx"
+
+namespace Goptical {
+  namespace Shape {
+    using _Goptical::Shape::EllipticalRing;
+  }
+}
+

@@ -1,0 +1,10 @@
+
+#include "Goptical/Sys/source_point.hh"
+#include "Goptical/Sys/source_point.hxx"
+
+namespace Goptical {
+  namespace Sys {
+    using _Goptical::Sys::SourcePoint;
+  }
+}
+

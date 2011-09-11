@@ -1,0 +1,10 @@
+
+#include "Goptical/Material/proxy.hh"
+#include "Goptical/Material/proxy.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::Proxy;
+  }
+}
+

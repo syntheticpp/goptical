@@ -1,0 +1,10 @@
+
+#include "Goptical/Light/spectral_line.hh"
+#include "Goptical/Light/spectral_line.hxx"
+
+namespace Goptical {
+  namespace Light {
+    using _Goptical::Light::SpectralLine;
+  }
+}
+

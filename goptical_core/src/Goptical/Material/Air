@@ -1,0 +1,14 @@
+
+#include "Goptical/Material/air.hh"
+#include "Goptical/Material/air.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::Air;
+    using _Goptical::Material::air;
+    using _Goptical::Material::std_air;
+    using _Goptical::Material::AirBirch94;
+    using _Goptical::Material::AirKohlrausch68;
+  }
+}
+

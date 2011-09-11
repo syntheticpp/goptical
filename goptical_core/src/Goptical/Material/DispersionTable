@@ -1,0 +1,10 @@
+
+#include "Goptical/Material/dispersion_table.hh"
+#include "Goptical/Material/dispersion_table.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::DispersionTable;
+  }
+}
+

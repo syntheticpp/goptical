@@ -1,0 +1,9 @@
+
+#include "Goptical/Shape/composer.hh"
+#include "Goptical/Shape/composer.hxx"
+
+namespace Goptical {
+  namespace Shape {
+    using _Goptical::Shape::Composer;
+  }
+}

@@ -1,0 +1,10 @@
+
+#include "Goptical/Light/ray.hh"
+#include "Goptical/Light/ray.hxx"
+
+namespace Goptical {
+  namespace Light {
+    using _Goptical::Light::Ray;
+  }
+}
+

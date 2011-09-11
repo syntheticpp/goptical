@@ -1,0 +1,10 @@
+
+#include "Goptical/Analysis/pointimage.hh"
+#include "Goptical/Analysis/pointimage.hxx"
+
+namespace Goptical {
+  namespace Analysis {
+    using _Goptical::Analysis::PointImage;
+  }
+}
+

@@ -1,0 +1,10 @@
+
+#include "Goptical/Curve/array.hh"
+#include "Goptical/Curve/array.hxx"
+
+namespace Goptical {
+  namespace Curve {
+    using _Goptical::Curve::Array;
+  }
+}
+

@@ -1,0 +1,10 @@
+
+#include "Goptical/Material/conrady.hh"
+#include "Goptical/Material/conrady.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::Conrady;
+  }
+}
+

@@ -1,0 +1,9 @@
+
+#include "Goptical/Io/renderer_viewport.hh"
+#include "Goptical/Io/renderer_viewport.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::RendererViewport;
+  }
+}

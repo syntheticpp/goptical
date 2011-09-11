@@ -1,0 +1,4 @@
+
+#include "Goptical/Curve/spline.hh"
+#include "Goptical/Curve/spline.hxx"
+

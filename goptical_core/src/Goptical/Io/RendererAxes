@@ -1,0 +1,9 @@
+
+#include "Goptical/Io/renderer_axes.hh"
+#include "Goptical/Io/renderer_axes.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::RendererAxes;
+  }
+}

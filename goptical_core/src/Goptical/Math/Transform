@@ -1,0 +1,12 @@
+
+#include "Goptical/Math/transform.hh"
+#include "Goptical/Math/transform.hxx"
+
+namespace Goptical {
+  namespace Math {
+    using _Goptical::Math::Transform;
+    using _Goptical::Math::Transform2;
+    using _Goptical::Math::Transform3;
+  }
+}
+

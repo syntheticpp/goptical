@@ -1,0 +1,13 @@
+
+#include "Goptical/Material/sellmeiermod.hh"
+#include "Goptical/Material/sellmeiermod.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::SellmeierMod;
+    using _Goptical::Material::SellmeierMod2;
+    using _Goptical::Material::Handbook1;
+    using _Goptical::Material::Handbook2;
+  }
+}
+

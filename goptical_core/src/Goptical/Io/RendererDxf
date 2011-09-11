@@ -1,0 +1,10 @@
+
+#include "Goptical/Io/renderer_dxf.hh"
+#include "Goptical/Io/renderer_dxf.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::RendererDxf;
+  }
+}
+

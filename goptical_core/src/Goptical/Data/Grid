@@ -1,0 +1,10 @@
+
+#include "Goptical/Data/grid.hh"
+#include "Goptical/Data/grid.hxx"
+
+namespace Goptical {
+  namespace Data {
+    using _Goptical::Data::Grid;
+  }
+}
+

@@ -1,0 +1,11 @@
+
+#include "Goptical/Material/schott.hh"
+#include "Goptical/Material/schott.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::Schott;
+  }
+}
+
+

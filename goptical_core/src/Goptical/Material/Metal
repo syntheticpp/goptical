@@ -1,0 +1,10 @@
+
+#include "Goptical/Material/metal.hh"
+#include "Goptical/Material/metal.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::Metal;
+  }
+}
+

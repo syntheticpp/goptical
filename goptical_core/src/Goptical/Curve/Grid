@@ -1,0 +1,10 @@
+
+#include "Goptical/Curve/grid.hh"
+#include "Goptical/Curve/grid.hxx"
+
+namespace Goptical {
+  namespace Curve {
+    using _Goptical::Curve::Grid;
+  }
+}
+

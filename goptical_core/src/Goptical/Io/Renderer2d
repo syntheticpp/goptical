@@ -1,0 +1,9 @@
+
+#include "Goptical/Io/renderer_2d.hh"
+#include "Goptical/Io/renderer_2d.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::Renderer2d;
+  }
+}

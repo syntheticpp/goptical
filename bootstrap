@@ -1,0 +1,8 @@
+#!/bin/sh
+
+p=$PWD
+for i in $p $p/goptical_core $p/goptical_design ; do
+  echo === Bootstrap in $i
+  ( cd $i ; $p/bootstrap.dir )
+done
+

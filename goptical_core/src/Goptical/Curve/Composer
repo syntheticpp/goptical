@@ -1,0 +1,10 @@
+
+#include "Goptical/Curve/composer.hh"
+#include "Goptical/Curve/composer.hxx"
+
+namespace Goptical {
+  namespace Curve {
+    using _Goptical::Curve::Composer;
+  }
+}
+

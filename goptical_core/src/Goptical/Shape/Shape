@@ -1,0 +1,9 @@
+
+#include "shape.hh"
+#include "shape.hxx"
+
+namespace Goptical {
+  namespace Shape {
+    using _Goptical::Shape::Shape;
+  }
+}

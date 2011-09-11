@@ -1,0 +1,10 @@
+
+#include "Goptical/Material/herzberger.hh"
+#include "Goptical/Material/herzberger.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::Herzberger;
+  }
+}
+

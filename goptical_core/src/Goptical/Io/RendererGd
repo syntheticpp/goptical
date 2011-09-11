@@ -1,0 +1,10 @@
+
+#include "Goptical/Io/renderer_gd.hh"
+#include "Goptical/Io/renderer_gd.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::RendererGd;
+  }
+}
+

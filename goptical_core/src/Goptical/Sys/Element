@@ -1,0 +1,10 @@
+
+#include "Goptical/Sys/element.hh"
+#include "Goptical/Sys/element.hxx"
+
+namespace Goptical {
+  namespace Sys {
+    using _Goptical::Sys::Element;
+  }
+}
+

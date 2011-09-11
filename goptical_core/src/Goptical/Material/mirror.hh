@@ -1,0 +1,72 @@
+/*
+
+      This file is part of the Goptical Core library.
+  
+      The Goptical library is free software; you can redistribute it
+      and/or modify it under the terms of the GNU General Public
+      License as published by the Free Software Foundation; either
+      version 3 of the License, or (at your option) any later version.
+  
+      The Goptical library is distributed in the hope that it will be
+      useful, but WITHOUT ANY WARRANTY; without even the implied
+      warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+      See the GNU General Public License for more details.
+  
+      You should have received a copy of the GNU General Public
+      License along with the Goptical library; if not, write to the
+      Free Software Foundation, Inc., 59 Temple Place, Suite 330,
+      Boston, MA 02111-1307 USA
+  
+      Copyright (C) 2010-2011 Free Software Foundation, Inc
+      Author: Alexandre Becoulet
+
+*/
+
+
+#ifndef GOPTICAL_MATERIAL_MIRROR_HH_
+#define GOPTICAL_MATERIAL_MIRROR_HH_
+
+#include "Goptical/common.hh"
+
+#include "material.hh"
+
+namespace _Goptical {
+
+  namespace Material {
+
+    /**
+       @short Simple mirror optical material model.
+       @header Goptical/Material/Mirror
+       @module {Core}
+       @main
+
+       This class models optical properties of a perfect reflecting material.
+
+       A global @ref mirror variable is available.
+     */
+
+    class Mirror : public Material
+    {
+    public:
+      Mirror();
+
+      /** @override */
+      bool is_opaque() const;
+      /** @override */
+      bool is_reflecting() const;
+      /** @override */
+      double get_internal_transmittance(double wavelen, double thickness) const;
+      /** @override */
+      double get_refractive_index(double wavelen) const;
+      /** @override */
+      double get_extinction_coef(double wavelen) const;
+    };
+
+    /** A global instance of Material::Mirror material. */
+    extern Mirror mirror;
+
+  }
+}
+
+#endif
+

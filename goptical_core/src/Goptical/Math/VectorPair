@@ -1,0 +1,17 @@
+
+#include "Goptical/Math/vector_pair.hh"
+#include "Goptical/Math/vector_pair.hxx"
+
+namespace Goptical {
+  namespace Math {
+    using _Goptical::Math::VectorPair;
+    using _Goptical::Math::VectorPair2;
+    using _Goptical::Math::VectorPair3;
+
+    using _Goptical::Math::vector2_pair_00;
+    using _Goptical::Math::vector2_pair_01;
+    using _Goptical::Math::vector3_pair_00;
+    using _Goptical::Math::vector3_pair_01;
+  }
+}
+

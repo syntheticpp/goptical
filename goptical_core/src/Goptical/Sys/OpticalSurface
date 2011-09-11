@@ -1,0 +1,9 @@
+
+#include "Goptical/Sys/optical_surface.hh"
+#include "Goptical/Sys/optical_surface.hxx"
+
+namespace Goptical {
+  namespace Sys {
+    using _Goptical::Sys::OpticalSurface;
+  }
+}

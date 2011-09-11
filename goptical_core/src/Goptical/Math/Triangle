@@ -1,0 +1,10 @@
+
+#include "Goptical/Math/triangle.hh"
+#include "Goptical/Math/triangle.hxx"
+
+namespace Goptical {
+  namespace Math {
+    using _Goptical::Math::Triangle;
+  }
+}
+

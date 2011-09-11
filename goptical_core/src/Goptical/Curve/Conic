@@ -1,0 +1,10 @@
+
+#include "Goptical/Curve/conic.hh"
+#include "Goptical/Curve/conic.hxx"
+
+namespace Goptical {
+  namespace Curve {
+    using _Goptical::Curve::Conic;
+  }
+}
+

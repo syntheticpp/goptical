@@ -1,0 +1,10 @@
+
+#include "Goptical/Io/renderer_plplot.hh"
+#include "Goptical/Io/renderer_plplot.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::RendererPlplot;
+  }
+}
+

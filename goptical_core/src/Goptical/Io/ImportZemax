@@ -1,0 +1,9 @@
+
+#include "Goptical/Io/import_zemax.hh"
+#include "Goptical/Io/import_zemax.hxx"
+
+namespace Goptical {
+  namespace Io {
+    using _Goptical::Io::ImportZemax;
+  }
+}

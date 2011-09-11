@@ -1,0 +1,10 @@
+
+#include "Goptical/Sys/mirror.hh"
+#include "Goptical/Sys/mirror.hxx"
+
+namespace Goptical {
+  namespace Sys {
+    using _Goptical::Sys::Mirror;
+  }
+}
+

@@ -1,0 +1,11 @@
+
+#include "telescope.hh"
+#include "telescope.hxx"
+
+namespace Goptical {
+  namespace Design {
+    namespace Telescope {
+      using _Goptical::Design::Telescope::Telescope;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+@c Copyright (C) 2010 Free Software Foundation, Inc. Permission is
+@c granted to copy, distribute and/or modify this document under the
+@c terms of the GNU Free Documentation License, Version 1.3 or any later
+@c version published by the Free Software Foundation; with no Invariant
+@c Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the
+@c license is included in the section entitled GNU Free Documentation
+@c License.
+
+@section TPH {Introduction}
+  @include description.mkdoc
+
+  @section T {Features list}
+    @list
+      @item Goptical relies on an object oriented optical design
+        approach. This allows designing optical component models and
+        reuse them nested in other designs. Components are stored in
+        herarchical form and live in a three-dimentional space with @ref
+        Goptical::Sys::Group {group} local coordinates.
+
+      @item Support for sequential and non-sequential ray-tracing.
+
+      @item Available components include:
+        @list
+          @item Single @ref Goptical::Sys::OpticalSurface {optical surfaces}
+          @item @ref Goptical::Sys::Lens {Lenses}
+          @item @ref Goptical::Sys::Mirror {Mirrors},
+          @item @ref Goptical::Sys::SourcePoint {Point sources} and
+          @item @ref Goptical::Sys::Image {Image} planes.
+        @end list
+
+        Surface curve and material used by optical components are
+        described using dedicated models.
+
+      @item Several surface curvature models are available:
+        @list
+          @item @ref Goptical::Curve::Conic {Conic} curves.
+          @item @ref Goptical::Curve::Polynomial {Polynomial} curves.
+          @item @ref Goptical::Curve::Spline {Rotationally symmetric}
+            splines and @ref Goptical::Curve::Grid {Grid} splines.
+          @item @ref Goptical::Curve::Zernike {Zernike polynomials}.
+          @item @ref Goptical::Curve::Foucault {Foucault test} curves.
+          @item @ref Goptical::Curve::Composer {Composition} of other curve models.
+          @item @ref Goptical::Curve::Array {Array} of other curve models.
+          @item @xref {tuto_usercurve} {User defined} curve models.
+        @end list
+
+        Most curve models can be described using model specific
+        parameters or by best fitting any curve object.
+
+      @item Several glass material models are available:
+        @list
+          @item @ref Goptical::Material::DispersionTable {Interpolated
+            dispersion} glass model
+          @item @ref Goptical::Material::Abbe {Abbe number} and @ref
+            Goptical::Material::Mil {mil number} model glass model.
+          @item @ref Goptical::Material::Sellmeier {Sellmeier} glass model.
+          @item @ref Goptical::Material::Schott {Schott} glass model.
+          @item @ref Goptical::Material::Conrady {Conrady} glass model.
+          @item @ref Goptical::Material::Herzberger {Herzberger} glass model.
+          @item A simple reflective surfaces @ref
+            Goptical::Material::Mirror {mirror} model.
+          @item A more accurate @ref Goptical::Material::Metal {metal} material model.
+          @item @ref Goptical::Material::Air {Air} and @ref
+            Goptical::Material::Vacuum {vaccum} models.
+        @end list
+
+      @item Surfaces outline shapes are described by a set of model classes too:
+        @list
+          @item @ref Goptical::Shape::Disk {Disk} shapes model.
+          @item @ref Goptical::Shape::Ring {Ring} shapes model.
+          @item @ref Goptical::Shape::Ellipse {Ellipse} shapes model.
+          @item @ref Goptical::Shape::Rectangle {Rectangle} shapes model.
+          @item @ref Goptical::Shape::RegularPolygon {Regular polygon}
+            and @ref Goptical::Shape::Polygon {User defined polygon}
+            shapes models.
+@c          @item @ref Goptical::Shape::Composer {Composition} of
+@c            multiple base shapes
+        @end list
+
+      @item Optical system analysis tools include:
+        @list 
+          @item Layout and rays rendering in 2d and 3d,
+          @item @ref Goptical::Analysis::Focus {Best point of focus} finding.
+          @item Various @ref Goptical::Analysis::RayFan {ray fan} plots.
+          @item @ref Goptical::Analysis::Spot {Spot diagram} plots.
+        @end list
+
+      @item Several graphical output driver are available to render
+        optical layouts and plots:
+        @list
+          @item output in @ref Goptical::Io::RendererSvg {Svg} vector
+            format.
+          @item output in bitmap format using the @ref
+            Goptical::Io::RendererGd {Gd} library.
+          @item output in @ref Goptical::Io::RendererDxf {Dxf} CAD
+            format.
+          @item output in various formats via the @ref
+            Goptical::Io::RendererPlplot {PlPlot} library.
+          @item @ref Goptical::Io::RendererX11 {X11} display on UNIX boxes.
+          @item 3d display using the @ref Goptical::Io::RendererOpengl
+            {OpenGL} library.
+          @item output in @ref Goptical::Io::RendererX3d {X3D}, a
+            standard 3d format.
+        @end list
+
+        @item Various optical design file formats can be read:
+          @list
+            @item Oslo glass catalog
+            @item Zemax glass catalog and optical designs
+          @end list
+    @end list
+
+  @end section
+
+@end section

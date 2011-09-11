@@ -1,0 +1,11 @@
+
+#include "Goptical/Material/mirror.hh"
+#include "Goptical/Material/mirror.hxx"
+
+namespace Goptical {
+  namespace Material {
+    using _Goptical::Material::Mirror;
+    using _Goptical::Material::mirror;
+  }
+}
+

@@ -1,0 +1,10 @@
+
+#include "Goptical/Data/sample_set.hh"
+#include "Goptical/Data/sample_set.hxx"
+
+namespace Goptical {
+  namespace Data {
+    using _Goptical::Data::SampleSet;
+  }
+}
+

@@ -1,0 +1,11 @@
+
+#include "Goptical/Curve/flat.hh"
+#include "Goptical/Curve/flat.hxx"
+
+namespace Goptical {
+  namespace Curve {
+    using _Goptical::Curve::Flat;
+    using _Goptical::Curve::flat;
+  }
+}
+
