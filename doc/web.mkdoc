@@ -27,13 +27,11 @@
 
 @c Releases can be downloaded @url http://ftp.gnu.org/gnu/goptical/ {here}.
 
- No releases are available yet !
-
  The project is hosted at @url https://savannah.gnu.org/projects/goptical .
 
- Source code can be retrieved using subversion:
+ Source code can be retrieved using @url http://mercurial.selenic.com/ {mercurial}:
 
- @tt {svn co svn://svn.savannah.gnu.org/goptical/trunk/goptical}
+ @tt {hg clone http://hg.savannah.gnu.org/hgweb/goptical/}
 
 @end section
 
@@ -44,8 +42,6 @@
   @item The manual is available online @url http://www.gnu.org/software/goptical/manual {here}.
   @item The texinfo manual is available in source tree.
  @end list
-
- Manual is still in draft version yet but API documentation section is complete and gives a good overview of the library.
 
  @c An other version of the manual with library internal details is available @url http://www.gnu.org/software/goptical/internals {here}.
 @end section
