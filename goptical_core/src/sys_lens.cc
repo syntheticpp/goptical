@@ -213,6 +213,7 @@ namespace _Goptical {
       // surfaces
       Group::draw_3d_e(r, ref);
 
+#if 0
       // FIXME check / broken code
 
       // draw lens contours
@@ -279,6 +280,7 @@ namespace _Goptical {
                 }
             }
         }
+#endif
     }
 
     void Lens::draw_2d_edge(Io::Renderer &r, const Surface &left, double l_y,
