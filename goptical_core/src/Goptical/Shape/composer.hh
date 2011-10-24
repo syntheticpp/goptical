@@ -125,10 +125,6 @@ namespace _Goptical {
         Attributes & exclude(const const_ref<Shape> &shape);
 
       private:
-        void pattern_callback(const Math::Vector2 &v, const Math::Vector2::put_delegate_t  &f) const;
-        void contour_callback(const Math::Vector2 &v, const Math::Vector2::put_delegate_t  &f) const;
-        void triangle_callback(const Math::Triangle<2> &v, const Math::Triangle<2>::put_delegate_t  &f) const;
-
         bool inside(const Math::Vector2 &point) const;
 
         const_ref<Shape>        _shape;

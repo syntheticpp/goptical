@@ -177,17 +177,6 @@ namespace _Goptical {
       return _bbox;
     }
 
-    void Composer::Attributes::pattern_callback(const Math::Vector2 &v, const Math::Vector2::put_delegate_t &f) const
-    {
-      Math::Vector2 p = _transform.transform(v);
-
-      GOPTICAL_FOREACH(s, _list)
-        if (!s->_exclude ^ s->_shape->inside(s->_inv_transform.transform(p)))
-          return;
-
-      f(p);
-    }
-
     void Composer::get_pattern(const Math::Vector2::put_delegate_t &f,
                                const Trace::Distribution &d,
                                bool unobstructed) const
@@ -200,13 +189,24 @@ namespace _Goptical {
         {
           GOPTICAL_FOREACH(s, _list)
             {
-              delegate_member<const Attributes,
-                              void (const Math::Vector2 &, const Math::Vector2::put_delegate_t &) const,
-                              &Attributes::pattern_callback> dm(*s);
+              DPP_DELEGATE3_OBJ(de, void, (const Math::Vector2 &v),
+                                // _0
+                                const Math::Vector2::put_delegate_t &, f,
+                                // _1
+                                const Math::Transform<2> &, s->_transform,
+                                // _2
+                                const std::list <Attributes> &, s->_list,
+              {
+                Math::Vector2 p = _1.transform(v);
 
-              delegate_bind<typeof(dm), void (const Math::Vector2 &), arg2nd> db(dm, f);
+                GOPTICAL_FOREACH(s, _2)
+                  if (!s->_exclude ^ s->_shape->inside(s->_inv_transform.transform(p)))
+                    return;
 
-              s->_shape->get_pattern(db, d, unobstructed);
+                _0(p);
+              });
+
+              s->_shape->get_pattern(de, d, unobstructed);
             }
         }
     }
@@ -219,11 +219,6 @@ namespace _Goptical {
       return _contour_cnt;
     }
 
-    void Composer::Attributes::contour_callback(const Math::Vector2 &v, const Math::Vector2::put_delegate_t &f) const
-    {
-      f(_transform.transform(v));
-    }
-
     void Composer::get_contour(unsigned int contour, const Math::Vector2::put_delegate_t  &f, double resolution) const
     {
       // FIXME add contour boolean operations
@@ -234,40 +229,41 @@ namespace _Goptical {
 
           if (contour < c)
             {
-              delegate_member<const Attributes,
-                              void (const Math::Vector2 &, const Math::Vector2::put_delegate_t &) const,
-                              &Attributes::contour_callback> dm(*s);
+              DPP_DELEGATE2_OBJ(de, void, (const Math::Vector2 &v),
+                                // _0
+                                const Math::Vector2::put_delegate_t &, f,
+                                // _1
+                                const Math::Transform<2> &, s->_transform,
+              {
+                _0(_1.transform(v));
+              });
 
-              delegate_bind<typeof(dm), void (const Math::Vector2 &), arg2nd> db(dm, f);
-
-              return s->_shape->get_contour(contour, db, resolution);
+              return s->_shape->get_contour(contour, de, resolution);
             }
 
           contour -= c;
         }
     }
 
-    void Composer::Attributes::triangle_callback(const Math::Triangle<2> &t, const Math::Triangle<2>::put_delegate_t  &f) const
-    {
-      Math::Triangle<2> p;
-
-      for (unsigned int i = 0; i < 3; i++)
-        p[i] = _transform.transform(t[i]);
-
-      f(p);
-    }
-
     void Composer::get_triangles(const Math::Triangle<2>::put_delegate_t  &f, double resolution) const
     {
       GOPTICAL_FOREACH(s, _list)
         {
-          delegate_member<const Attributes,
-                          void (const Math::Triangle<2> &, const Math::Triangle<2>::put_delegate_t &) const,
-                          &Attributes::triangle_callback> dm(*s);
+          DPP_DELEGATE2_OBJ(de, void, (const Math::Triangle<2> &t),
+                            // _0
+                            const Math::Triangle<2>::put_delegate_t &, f,
+                            // _1
+                            const Math::Transform<2> &, s->_transform,
+          {
+            Math::Triangle<2> p;
 
-          delegate_bind<typeof(dm), void (const Math::Triangle<2> &), arg2nd> db(dm, f);
+            for (unsigned int i = 0; i < 3; i++)
+              p[i] = _1.transform(t[i]);
 
-          s->_shape->get_triangles(db, resolution);
+            _0(p);
+          });
+
+          s->_shape->get_triangles(de, resolution);
         }
     }
 

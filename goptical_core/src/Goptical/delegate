@@ -216,9 +216,14 @@ namespace dpp {
     O *_obj;								\
   };
 
-#define _DPP_DELEGATE_MEMBER(n)		\
-  _DPP_DELEGATE_MEMBER_(n,)		\
+#if (__GNUC__ == 4 && __GNUC_MINOR__ >=4) || (__GNUC__ > 4)
+# define _DPP_DELEGATE_MEMBER(n)		\
+  _DPP_DELEGATE_MEMBER_(n,)		
+#else
+# define _DPP_DELEGATE_MEMBER(n)		\
+  _DPP_DELEGATE_MEMBER_(n,)                     \
   _DPP_DELEGATE_MEMBER_(n, const)
+#endif
 
   /** @internal contains typedef with prototype without first argument */
   template <typename prototype>
@@ -326,9 +331,14 @@ namespace dpp {
     }									\
   };
 
-#define _DPP_DELEGATE_MEMBER_THIS(n)		\
+#if (__GNUC__ == 4 && __GNUC_MINOR__ >=4) || (__GNUC__ > 4)
+#define _DPP_DELEGATE_MEMBER_THIS(n)                    \
+  _DPP_DELEGATE_MEMBER_THIS_(n,)			
+#else
+#define _DPP_DELEGATE_MEMBER_THIS(n)                    \
   _DPP_DELEGATE_MEMBER_THIS_(n,)			\
   _DPP_DELEGATE_MEMBER_THIS_(n, const)
+#endif
 
   //////////////////////////////////////////////////////////////////////
   //	delegate bind class
