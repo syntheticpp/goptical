@@ -31,8 +31,11 @@ CXXFLAGS+=" -Wall "
 CXXFLAGS="$GOPTICAL_CXXFLAGS $CXXFLAGS"
 LDFLAGS="$GOPTICAL_LDFLAGS $LDFLAGS"
 
-AC_ARG_ENABLE(debug, AC_HELP_STRING(--enable-debug, [Enable debug and asserts]), enable_tests=yes)
-if test "x$enable_tests" = "xyes" ; then
+AC_ARG_ENABLE(tests, AC_HELP_STRING(--disable-tests, [Disable compilation of tests]), disable_tests=yes)
+AM_CONDITIONAL(TESTS, test x$disable_tests != xyes)
+
+AC_ARG_ENABLE(debug, AC_HELP_STRING(--enable-debug, [Enable debug and asserts]), enable_debug=yes)
+if test "x$enable_debug" = "xyes" ; then
    CXXFLAGS+=" -g "
 else
    CPPFLAGS+=" -DNDEBUG "
@@ -50,6 +53,8 @@ AC_ARG_WITH([goptical-core-lib],
   GOPTICAL_CORE_LIB="-lgoptical"
 ])
 AC_SUBST([GOPTICAL_CORE_LIB])
+
+AC_CHECK_LIB(m, cosf, , AC_MSG_ERROR([can not find m library]))
 
 AC_CHECK_HEADER(Goptical/common.hh, , AC_MSG_ERROR([GNU Goptical core library headers not found]))
 

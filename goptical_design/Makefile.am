@@ -14,5 +14,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ACLOCAL_AMFLAGS = -I build-aux
-SUBDIRS = src tests
+SUBDIRS = src
+
+if TESTS
+SUBDIRS += tests
+endif
 
