@@ -246,7 +246,7 @@ namespace _Goptical {
     void Renderer::draw_circle(const Math::Vector2 &v, double r, const Rgb &rgb, bool filled)
     {
       unsigned int count = std::min(100, std::max(6, (int)(2. * M_PI * r / _feature_size)));
-      Math::Vector2 p[count];
+      DPP_VLARRAY(Math::Vector2, count, p);
       double astep = 2. * M_PI / count;
       double a = astep;
       p[0] = Math::Vector2(r, 0);
@@ -254,7 +254,7 @@ namespace _Goptical {
       for (unsigned int i = 0; i < count; i++, a += astep)
         p[i] = v + Math::Vector2(r * cos(a), r * sin(a));
 
-      draw_polygon(p, count, rgb, filled, true);
+      draw_polygon(&p[0], count, rgb, filled, true);
     }
 
     void Renderer::draw_triangle(const Math::Triangle<3> &t, const Rgb &rgb)

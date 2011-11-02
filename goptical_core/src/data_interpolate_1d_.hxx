@@ -42,7 +42,7 @@ namespace _Goptical {
     }
 
     template <class X>
-    template <typename Interpolate1d<X>::cubic_2nd_deriv_init_e de>
+    template <cubic_2nd_deriv_init_e de>
     void Interpolate1d<X>::compute_cubic_2nd_deriv(unsigned int n, double dd[],
                                                       double d0, double dn) const
     {

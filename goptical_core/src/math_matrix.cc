@@ -162,8 +162,8 @@ namespace _Goptical {
     }
 
 
-    template class Matrix<2>;
-    template class Matrix<3>;
+    template struct Matrix<2>;
+    template struct Matrix<3>;
 
     template std::ostream & operator<<(std::ostream &o, const Matrix<3> &m);
     template std::ostream & operator<<(std::ostream &o, const Matrix<2> &m);

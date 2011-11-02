@@ -83,6 +83,22 @@ namespace _Goptical {
         }
     }
 
+    const double SpectralLine::red = 645.0;
+    const double SpectralLine::green = 510.0;
+    const double SpectralLine::blue = 440.0;
+    const double SpectralLine::t = 1013.98;
+    const double SpectralLine::s = 852.11;
+    const double SpectralLine::r = 706.5188;
+    const double SpectralLine::C = 656.2725;
+    const double SpectralLine::C_ = 643.8469; // C'
+    const double SpectralLine::D = 589.2938;
+    const double SpectralLine::d = 587.5618;
+    const double SpectralLine::e = 546.074;
+    const double SpectralLine::F = 486.1327;
+    const double SpectralLine::F_ = 479.9914; // F'
+    const double SpectralLine::g = 435.8343;
+    const double SpectralLine::h = 404.6561;
+    const double SpectralLine::i = 365.0146;
   }
 
 }

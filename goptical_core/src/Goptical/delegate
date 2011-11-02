@@ -2,6 +2,11 @@
 
    C++ delegate classes
 
+   This file is part of the dpp library of C++ template classes
+
+   doc: http://diaxen.ssji.net/dpp/index.html
+   repo: https://www.ssji.net/svn/projets/trunk/libdpp
+
    This program is free software: you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public License
    as published by the Free Software Foundation, either version 3 of
@@ -55,7 +60,10 @@ namespace dpp {
   };
 
 #ifndef DPP_DELEGATE_ARGC
-  /** @This defines maximum  number of arguments handled by delegate classes. */
+  /** @This defines maximum number of arguments handled by delegate
+      classes. It can be defined before inclusion of the header so
+      that class specialization declarations take place to handle up
+      to 8 arguments. The default value is 4. */
 # define DPP_DELEGATE_ARGC 4
 #endif
 
@@ -94,7 +102,7 @@ namespace dpp {
      Actual implementations for different parameters count are located
      in class specializations.
 
-     Maximum number of arguments is defined by the @ref
+     Maximum number of handled arguments is controlled by the @ref
      #DPP_DELEGATE_ARGC macro.
 
      Usage example:
@@ -163,12 +171,15 @@ namespace dpp {
      Actual implementations for different parameters count are located
      in class specializations.
 
-     Maximum number of arguments is defined by the @ref
+     Maximum number of handled arguments is controlled by the @ref
      #DPP_DELEGATE_ARGC macro.
 
      Usage example:
      @example test/test_delegate.cc:member1
      @example test/test_delegate.cc:member2
+
+     Delegate with @tt const member function type is only supported by
+     gcc 4.4 and clang compilers.
 
      @see delegate_member_this
      @see delegate_func
@@ -216,13 +227,13 @@ namespace dpp {
     O *_obj;								\
   };
 
-#if (__GNUC__ == 4 && __GNUC_MINOR__ >=4) || (__GNUC__ > 4)
-# define _DPP_DELEGATE_MEMBER(n)		\
-  _DPP_DELEGATE_MEMBER_(n,)		
-#else
+#if ((__GNUC__ == 4 && __GNUC_MINOR__ >= 4) || (__GNUC__ > 4)) && !defined(__INTEL_COMPILER)
 # define _DPP_DELEGATE_MEMBER(n)		\
   _DPP_DELEGATE_MEMBER_(n,)                     \
   _DPP_DELEGATE_MEMBER_(n, const)
+#else
+# define _DPP_DELEGATE_MEMBER(n)		\
+  _DPP_DELEGATE_MEMBER_(n,)		
 #endif
 
   /** @internal contains typedef with prototype without first argument */
@@ -274,7 +285,7 @@ namespace dpp {
      Actual implementations for different parameters count are located
      in class specializations.
 
-     Maximum number of arguments is defined by the @ref
+     Maximum number of handled arguments is controlled by the @ref
      #DPP_DELEGATE_ARGC macro.
 
      Usage example:
@@ -283,6 +294,9 @@ namespace dpp {
      @example test/test_delegate.cc:member_arg
      Use with pointer argument:
      @example test/test_delegate.cc:member_arg2
+
+     Delegate with @tt const member function type is only supported by
+     gcc 4.4 and clang compilers.
 
      @see delegate_member
      @see delegate_func
@@ -331,13 +345,13 @@ namespace dpp {
     }									\
   };
 
-#if (__GNUC__ == 4 && __GNUC_MINOR__ >=4) || (__GNUC__ > 4)
-#define _DPP_DELEGATE_MEMBER_THIS(n)                    \
-  _DPP_DELEGATE_MEMBER_THIS_(n,)			
-#else
+#if ((__GNUC__ == 4 && __GNUC_MINOR__ >= 4) || (__GNUC__ > 4)) && !defined(__INTEL_COMPILER)
 #define _DPP_DELEGATE_MEMBER_THIS(n)                    \
   _DPP_DELEGATE_MEMBER_THIS_(n,)			\
   _DPP_DELEGATE_MEMBER_THIS_(n, const)
+#else
+#define _DPP_DELEGATE_MEMBER_THIS(n)                    \
+  _DPP_DELEGATE_MEMBER_THIS_(n,)			
 #endif
 
   //////////////////////////////////////////////////////////////////////
@@ -369,7 +383,7 @@ namespace dpp {
      Actual implementations for different parameters configurations
      are located in class specializations.
 
-     Maximum number of arguments is defined by the @ref
+     Maximum number of handled arguments is controlled by the @ref
      #DPP_DELEGATE_ARGC macro.
 
      Usage example:

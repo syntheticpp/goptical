@@ -91,7 +91,7 @@ namespace _Goptical {
           this vector and other components are taken from passed
           vector. */
       template <int M>
-      inline VectorBase<M, T> select(unsigned int bitmask, const VectorBase<M, T> &v = Vector<M, T>(0.)) const;
+      inline VectorBase<M, T> select(unsigned int bitmask, const VectorBase<M, T> &v) const;
       /** Multiply vector with matrix. See Vector class for
           matrix/vector multiplication. */
       inline VectorBase operator*(const Matrix<N> &m);

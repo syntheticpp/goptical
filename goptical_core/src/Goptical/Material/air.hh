@@ -58,8 +58,8 @@ namespace _Goptical {
     {
     public:
 
-      /** Standard air pressure in @em Pa */
-      static const double std_pressure = 101325.;
+      /** Standard air pressure is 101325 @em Pa */
+      static const double std_pressure;
 
       /** Create a new air material model with 101325 Pa pressure. */
       Air(double pressure = std_pressure);

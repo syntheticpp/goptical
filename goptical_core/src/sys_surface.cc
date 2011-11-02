@@ -279,19 +279,19 @@ namespace _Goptical {
 
       if (fabs(bot_hole - top_hole) > 1e-6)
         {
-          Math::Vector2 p[res / 2];
+          DPP_VLARRAY(Math::Vector2, res / 2, p);
 
-          get_2d_points(p, res / 2, top_edge, top_hole, ref);
-          r.draw_polygon(p, res / 2, get_color(r), false, false);
-          get_2d_points(p, res / 2, bot_hole, bot_edge, ref);
-          r.draw_polygon(p, res / 2, get_color(r), false, false);
+          get_2d_points(&p[0], res / 2, top_edge, top_hole, ref);
+          r.draw_polygon(&p[0], res / 2, get_color(r), false, false);
+          get_2d_points(&p[0], res / 2, bot_hole, bot_edge, ref);
+          r.draw_polygon(&p[0], res / 2, get_color(r), false, false);
         }
       else
         {
-          Math::Vector2 p[res];
+          DPP_VLARRAY(Math::Vector2, res, p);
 
-          get_2d_points(p, res, top_edge, bot_edge, ref);
-          r.draw_polygon(p, res, get_color(r), false, false);
+          get_2d_points(&p[0], res, top_edge, bot_edge, ref);
+          r.draw_polygon(&p[0], res, get_color(r), false, false);
         }
     }
 

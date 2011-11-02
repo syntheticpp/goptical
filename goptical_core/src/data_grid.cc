@@ -395,13 +395,13 @@ namespace _Goptical {
       const unsigned int w = _size[0];
       unsigned int x0, x1;
 
-      Math::Vector2 d[_size[0] * _size[1]];
+      DPP_VLARRAY(Math::Vector2, _size[0] * _size[1], d);
 
       for (x1 = 0; x1 < _size[1]; x1++)
-        get_deriv_smooth<0>(d, 1, x1 * w);
+        get_deriv_smooth<0>(&d[0], 1, x1 * w);
 
       for (x0 = 0; x0 < _size[0]; x0++)
-        get_deriv_smooth<1>(d, w, x0);
+        get_deriv_smooth<1>(&d[0], w, x0);
 
       for (unsigned int x0 = 0; x0 < _size[0] - 1; x0++)
         for (unsigned int x1 = 0; x1 < _size[1] - 1; x1++)
@@ -451,8 +451,8 @@ namespace _Goptical {
       double cd[_size[0] * _size[1]];
       get_cross_deriv_diff(cd);
 
-      Math::Vector2 d[_size[0] * _size[1]];
-      get_deriv_diff(d);
+      DPP_VLARRAY(Math::Vector2, _size[0] * _size[1], d);
+      get_deriv_diff(&d[0]);
 
       const unsigned int w = _size[0];
 

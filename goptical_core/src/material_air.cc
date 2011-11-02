@@ -101,6 +101,9 @@ namespace _Goptical {
         }
     }
 
+    template <enum AirFormula m>
+    const double Air<m>::std_pressure = 101325.;
+
     template class Air<AirBirch94Formula>;
     template class Air<AirKohlrausch68Formula>;
 

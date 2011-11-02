@@ -1,6 +1,11 @@
 /* -*- c++ -*-
 
-   string classe
+   Formatted string class
+
+   This file is part of the dpp library of C++ template classes
+
+   doc: http://diaxen.ssji.net/dpp/index.html
+   repo: https://www.ssji.net/svn/projets/trunk/libdpp
 
    This program is free software: you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public License
@@ -20,9 +25,15 @@
 
 */
 
-#include <cstdarg>
+#ifndef DPP_FSTRING_HH_
+#define DPP_FSTRING_HH_
+
+#include <stdarg.h>
+#include <stdio.h>
+
 #include <string>
-#include <cstdio>
+
+/** @file @module{Formatted string} */
 
 #ifdef __GNUC__
 # define _DPP_FORMAT_CHK(archetype, string_index, first_to_check)
@@ -45,7 +56,7 @@ namespace dpp {
      to use. Yes, I know, it's not type safe.
 
      Allocation is performed by underlying @ref std::string class and
-     format string are processed using the @ref vsnprintf function
+     format string are processed using the @ref ::vsnprintf libc function
      with proper buffer size.
    */
   class fstring : public std::string
@@ -157,12 +168,15 @@ namespace dpp {
       va_list aq;
 
       va_copy(aq, ap);
-      s = std::vsnprintf(&(*this)[0], size() + 1, fmt, aq);
+      if (empty())
+        s = ::vsnprintf(NULL, 0, fmt, aq);
+      else
+        s = ::vsnprintf(&at(0), size() + 1, fmt, aq);
 
       if (s >= 0 && s > (int)size())
 	{
 	  resize(s);
-	  s = std::vsnprintf(&(*this)[0], size() + 1, fmt, ap);
+	  s = ::vsnprintf(&at(0), size() + 1, fmt, ap);
 	}
 
       va_end(aq);
@@ -174,7 +188,7 @@ namespace dpp {
     int vsnprintf(size_t size, const char *fmt, va_list ap)
     {
       resize(size);
-      return std::vsnprintf(&(*this)[0], size + 1, fmt, ap);
+      return ::vsnprintf(&at(0), size + 1, fmt, ap);
     }
 
     /** @This overwrites current content using format string and
@@ -216,4 +230,6 @@ namespace dpp {
   };
 
 }
+
+#endif
 

@@ -15,6 +15,6 @@
 
 pkgincludedir = $(includedir)/Goptical
 
-pkginclude_HEADERS = vector_pool ref delegate fstring Error error.hh common.hh
+pkginclude_HEADERS = vector_pool ref delegate fstring vlarray Error error.hh common.hh
 
 SUBDIRS = Analysis Curve Data Io Light Material Math Shape Sys Trace

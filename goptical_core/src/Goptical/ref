@@ -1,6 +1,11 @@
 /* -*- c++ -*-
 
-   C++ Reference counting implementation
+   C++ smart pointer classes
+
+   This file is part of the dpp library of C++ template classes
+
+   doc: http://diaxen.ssji.net/dpp/index.html
+   repo: https://www.ssji.net/svn/projets/trunk/libdpp
 
    This program is free software: you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public License
@@ -26,6 +31,8 @@
 #include <cassert>
 #include <cstdlib>
 #include <typeinfo>
+
+/** @file @module{Smart pointer} */
 
 // #define _DPP_USE_GCC_ATOMIC
 
@@ -94,25 +101,25 @@ namespace dpp {
       return _obj ? _obj->_ref_count : 0;
     }
 
-    /** @This tests if pointed ojects are the same */
+    /** @This tests if pointed objects are the same */
     bool operator==(const ref_ &r) const
     {
       return _obj == r._obj;
     }
 
-    /** @This tests if pointed ojects are not the same */
+    /** @This tests if pointed objects are not the same */
     bool operator!=(const ref_ &r) const
     {
       return _obj != r._obj;
     }
 
-    /** @This tests if pointed ojects are the same */
+    /** @This tests if pointed objects are the same */
     bool operator==(const X *p) const
     {
       return _obj == p;
     }
 
-    /** @This tests if pointed ojects are the same */
+    /** @This tests if pointed objects are the same */
     bool operator!=(const X *p) const
     {
       return _obj != p;
@@ -164,37 +171,13 @@ namespace dpp {
     /** @internal */
     void _inc() const
     {
-#ifdef _DPP_USE_GCC_ATOMIC
-# if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-      __sync_add_and_fetch(&const_cast<Xnoconst*>(_obj)->_raw, 1);
-# elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-      __sync_add_and_fetch(&const_cast<Xnoconst*>(_obj)->_raw, 2);
-# else
-#  error __BYTE_ORDER__ not defined
-# endif
-#else
-      const_cast<Xnoconst*>(_obj)->_ref_count++;
-#endif
+      _obj->ref_inc();
     }
 
     /** @internal */
     void _drop() const
     {
-      assert(_obj->_ref_count > 0);
-
-#ifdef _DPP_USE_GCC_ATOMIC
-# if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-      __sync_sub_and_fetch(&const_cast<Xnoconst*>(_obj)->_raw, 1);
-# elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-      __sync_sub_and_fetch(&const_cast<Xnoconst*>(_obj)->_raw, 2);
-# endif
-#else
-      const_cast<Xnoconst*>(_obj)->_ref_count--;
-#endif
-
-      // free dynamically allocated objects only
-      if (_obj->_dynamic && _obj->_ref_count == 0)
-	delete _obj;
+      _obj->ref_drop();
     }
 
     /** @internal */
@@ -650,6 +633,7 @@ namespace dpp {
       obj->_ref_clone = src->_ref_clone;
       obj->_dynamic = true;
       obj->_ref_count = 1;
+      obj->cloned(*src);
       return obj;
     }
 
@@ -711,7 +695,7 @@ namespace dpp {
       return *this;
     }
 
-    ~ref_base()
+    virtual ~ref_base()
     {
 #ifdef DPP_REF_LIVE_REFS_ASSERT
       assert(_ref_count == 0 || !"Can not destruct object which has live references");
@@ -726,6 +710,77 @@ namespace dpp {
     void set_clone()
     {
       ref_base_<X, cloneable>::template _set_clone<Derived>();
+    }
+
+    /** @This is called when this object has just been cloned. The
+	call is performed on most derived class (see @ref set_clone
+	function). This default implementation is empty. */
+    void cloned(const X &src)
+    {
+    }
+
+    /** @This is called when the reference counter has just been
+	increased. The call is performed on reference to @tt X class so
+	a virtual prototype must be declared in the @tt X class to
+	override this function from further derived classes.
+	This default implementation is empty.
+	@see ref_decreased @see ref_inc
+    */
+    void ref_increased(int ref_count) const
+    {
+    }
+
+    /** Same as @ref ref_increased but called when the counter has
+	been decreased. This default implementation is empty.
+	@see ref_dec
+    */
+    void ref_decreased(int ref_count) const
+    {
+    }
+
+    /** @This increases references count on object. It should only be
+	used on rare cases when smart pointer classes can not be used
+	to track all references to the object. @see ref_drop */
+    void ref_inc() const
+    {
+#ifdef _DPP_USE_GCC_ATOMIC
+# if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+      __sync_add_and_fetch(&const_cast<ref_base*>(this)->_raw, 1);
+# elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+      __sync_add_and_fetch(&const_cast<ref_base*>(this)->_raw, 2);
+# else
+#  error __BYTE_ORDER__ not defined
+# endif
+#else
+      const_cast<ref_base*>(this)->_ref_count++;
+#endif
+
+      static_cast<const X*>(this)->ref_increased(_ref_count);
+    }
+
+    /** @This decreases references count on object. Dynamically
+	allocated objects are deleted if counter reaches 0. It should
+	only be used on rare cases when smart pointer classes can not
+	be used to track all references to the object. @see ref_inc */
+    void ref_drop() const
+    {
+      assert(_ref_count > 0);
+
+#ifdef _DPP_USE_GCC_ATOMIC
+# if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+      __sync_sub_and_fetch(&const_cast<ref_base*>(this)->_raw, 1);
+# elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+      __sync_sub_and_fetch(&const_cast<ref_base*>(this)->_raw, 2);
+# endif
+#else
+      const_cast<ref_base*>(this)->_ref_count--;
+#endif
+
+      static_cast<const X*>(this)->ref_decreased(_ref_count);
+
+      // free dynamically allocated objects only
+      if (_dynamic && _ref_count == 0)
+	delete this;
     }
 
   private:

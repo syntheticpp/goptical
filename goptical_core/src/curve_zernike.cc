@@ -588,7 +588,7 @@ namespace _Goptical {
 
     ////////////////////////////////////////////////////
 
-    const zp_t *zp[Zernike::term_count] =
+    zp_t * const zp[Zernike::term_count] =
     {
       &zp_0,
       &zp_1, &zp_2, &zp_3,
@@ -598,7 +598,7 @@ namespace _Goptical {
       &zp_25, &zp_26, &zp_27, &zp_28, &zp_29, &zp_30, &zp_31, &zp_32, &zp_33, &zp_34, &zp_35
     };
 
-    const zp_d_t *zp_d[Zernike::term_count] =
+    zp_d_t * const zp_d[Zernike::term_count] =
     {
       0,
       &zp_1_d, &zp_2_d, &zp_3_d,

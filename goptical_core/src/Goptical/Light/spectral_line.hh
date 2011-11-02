@@ -59,39 +59,39 @@ namespace _Goptical {
       /** get rgb color associated with wavelen */
       static Io::Rgb get_wavelen_color(double wl);
 
-      /** @showvalue red colored line */
-      static const double red = 645.0;
-      /** @showvalue green colored line */
-      static const double green = 510.0;
-      /** @showvalue blue colored line */
-      static const double blue = 440.0;
+      /** red colored line at 645nm */
+      static const double red;
+      /** green colored line at 510nm */
+      static const double green;
+      /** blue colored line at 440nm */
+      static const double blue;
 
-      /** @showvalue infrared mercury line */
-      static const double t = 1013.98;
-      /** @showvalue infrared cesium line */
-      static const double s = 852.11;
-      /** @showvalue red helium line */
-      static const double r = 706.5188;
-      /** @showvalue red hydrogen line */
-      static const double C = 656.2725;
-      /** @showvalue red cadmium line */
-      static const double C_ = 643.8469; // C'
-      /** @showvalue yellow sodium line */
-      static const double D = 589.2938;
-      /** @showvalue yellow helium line */
-      static const double d = 587.5618;
-      /** @showvalue green mercury line */
-      static const double e = 546.074;
-      /** @showvalue blue hydrogen line */
-      static const double F = 486.1327;
-      /** @showvalue blue cadmium line */
-      static const double F_ = 479.9914; // F'
-      /** @showvalue blue mercury line */
-      static const double g = 435.8343;
-      /** @showvalue violet mercury line */
-      static const double h = 404.6561;
-      /** @showvalue ultraviolet mercury line */
-      static const double i = 365.0146;
+      /** infrared mercury line at 1013.98nm */
+      static const double t;
+      /** infrared cesium line at 852.11nm */
+      static const double s;
+      /** red helium line at 706.5188nm */
+      static const double r;
+      /** red hydrogen line at 656.2725nm */
+      static const double C;
+      /** red cadmium line at 643.8469nm */
+      static const double C_; // C'
+      /** yellow sodium line at 589.2938nm */
+      static const double D;
+      /** yellow helium line at 587.5618nm */
+      static const double d;
+      /** green mercury line at 546.074nm */
+      static const double e;
+      /** blue hydrogen line at 486.1327nm */
+      static const double F;
+      /** blue cadmium line at 479.9914nm */
+      static const double F_; // F'
+      /** blue mercury line at 435.8343nm */
+      static const double g;
+      /** violet mercury line at 404.6561nm */
+      static const double h;
+      /** ultraviolet mercury line at 365.0146nm */
+      static const double i;
 
     private:
       double    _wavelen;

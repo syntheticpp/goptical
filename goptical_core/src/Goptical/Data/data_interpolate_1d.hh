@@ -34,6 +34,14 @@ namespace _Goptical {
 
   namespace Data {
 
+    /** @internal */
+    enum cubic_2nd_deriv_init_e
+      {
+        Cubic2ndDerivQuadratic,
+        Cubic2ndDerivFirst,
+        Cubic2ndDerivSecond,
+      };
+
     /**
        @short Common iterpolation code for 1d data sets
        @module {Core}
@@ -92,13 +100,6 @@ namespace _Goptical {
                                   double p1x, double p1y,
                                   double p2x, double p2y,
                                   double dd1, double dd2);
-
-      enum cubic_2nd_deriv_init_e
-        {
-          Cubic2ndDerivQuadratic,
-          Cubic2ndDerivFirst,
-          Cubic2ndDerivSecond,
-        };
 
       /** compute cubic sencond derivatives using the tridiagonal algorithm */
       template <cubic_2nd_deriv_init_e de>

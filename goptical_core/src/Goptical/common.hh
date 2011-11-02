@@ -42,6 +42,7 @@
 #include "Goptical/ref"    /* mkdoc:skip */
 #include "Goptical/delegate"       /* mkdoc:skip */
 #include "Goptical/fstring"        /* mkdoc:skip */
+#include "Goptical/vlarray"        /* mkdoc:skip */
 
 #include <math.h>
 
@@ -424,8 +425,8 @@ namespace _Goptical {
 
     template <int N> class Transform;
     /** @main */
-    class Transform<3>;
-    class Transform<2>;
+    template <> class Transform<3>;
+    template <> class Transform<2>;
     /** @see __Transform2__ */
     typedef Transform<2> Transform2;
     /** @see __Transform3__ */

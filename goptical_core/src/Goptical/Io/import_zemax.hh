@@ -40,7 +40,7 @@ namespace _Goptical {
 
   namespace Io {
 
-    class zemax_surface_s;
+    struct zemax_surface_s;
 
     /**
        @short Zemax files loader

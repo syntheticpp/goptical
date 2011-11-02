@@ -2,6 +2,11 @@
 
    C++ Indexable objects pool
 
+   This file is part of the dpp library of C++ template classes
+
+   doc: http://diaxen.ssji.net/dpp/index.html
+   repo: https://www.ssji.net/svn/projets/trunk/libdpp
+
    This program is free software: you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public License
    as published by the Free Software Foundation, either version 3 of
@@ -27,6 +32,8 @@
 #include <memory>
 #include <vector>
 
+/** @file @module{Vector pool} */
+
 namespace dpp {
 
   template <class X, unsigned int block_size = 32,
@@ -42,7 +49,7 @@ namespace dpp {
       @This contains the iterator implementation for the @ref
       vector_pool class.
    */
-  template <typename P, typename E, int direction>
+  template <typename P, typename E, int direction>         /* FIXME rework iterator (more ops, copy, const, ...) */
   class vector_pool_iterator
   {
     P &_pool;
