@@ -34,6 +34,25 @@
 
 namespace dpp {
 
+#ifndef _DPP_DR106
+  /** @internal Workaround for c++ DR 106, strip reference */
+  template <class X>
+  struct _dr106
+  {
+    typedef X type;
+  };
+
+  /** @internal */
+  template <class X>
+  struct _dr106<X &>
+  {
+    typedef X type;
+  };
+
+  /** @internal */
+# define _DPP_DR106(x) typename _dr106<x>::type
+#endif
+
   //////////////////////////////////////////////////////////////////////
   //	delegate base class
   //////////////////////////////////////////////////////////////////////
@@ -1135,7 +1154,7 @@ namespace dpp {
   template <class X, int id, bool smart, class ItemBase>
   struct delegate_push_types <linked_list<X, id, smart, ItemBase> >
   {
-    typedef X& arg;
+    typedef _DPP_DR106(X) & arg;
   };
 
   /**
@@ -1146,7 +1165,7 @@ namespace dpp {
   struct delegate_push_ptr
   {
     typedef PushArg arg;
-    static PushArg & get(A0 &a0)
+    static _DPP_DR106(PushArg) & get(_DPP_DR106(A0) &a0)
     {
       return a0;
     }
@@ -1160,7 +1179,7 @@ namespace dpp {
   struct delegate_push_ptr<A0, PushArg* const &>
   {
     typedef PushArg * const & arg;
-    static PushArg * get(A0 &a0)
+    static PushArg * get(_DPP_DR106(A0) &a0)
     {
       return &a0;
     }
@@ -1269,7 +1288,7 @@ template <class C> struct delegate_iterate_types <const C>
    @example test/test_delegate.cc:push|iter1
 */
 template <typename Container,
-	  typename R = typename delegate_iterate_types<Container>::reference &>
+	  typename R = typename delegate_iterate_types<Container>::reference>
 class delegate_iterate
   : public delegate< R () >
 {
