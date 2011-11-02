@@ -26,7 +26,7 @@
 #ifndef GOPTICAL_MATERIAL_MIRROR_HXX_
 #define GOPTICAL_MATERIAL_MIRROR_HXX_
 
-#include "material.hxx"
+#include "base.hxx"
 
 #endif
 

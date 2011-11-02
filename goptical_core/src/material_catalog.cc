@@ -23,7 +23,7 @@
 */
 
 #include <Goptical/Material/Catalog>
-#include <Goptical/Material/Material>
+#include <Goptical/Material/Base>
 
 namespace _Goptical {
 
@@ -35,7 +35,7 @@ namespace _Goptical {
     {
     }
 
-    void Catalog::add_material(const std::string &material_name, const const_ref<Material> &material)
+    void Catalog::add_material(const std::string &material_name, const const_ref<Base> &material)
     {
       if (!_list.insert(catalog_map_t::value_type(material_name, material)).second)
         throw Error("Material already present in catalog");

@@ -23,16 +23,15 @@
 */
 
 
-#ifndef GOPTICAL_MATERIAL_HXX_
-#define GOPTICAL_MATERIAL_HXX_
+#ifndef GOPTICAL_SHAPE_HXX_
+#define GOPTICAL_SHAPE_HXX_
 
 namespace _Goptical {
 
-  namespace Material {
+  namespace Shape {
 
-    double Material::get_refractive_index(double wavelen, const Material &env) const
+    Base::Base()
     {
-      return get_refractive_index(wavelen) / env.get_refractive_index(wavelen);
     }
 
   }

@@ -17,20 +17,20 @@ SUBDIRS = Goptical
 
 lib_LTLIBRARIES = libgoptical.la
 
-libgoptical_la_SOURCES = curve_array.cc curve.cc curve_composer.cc      \
+libgoptical_la_SOURCES = curve_array.cc curve_base.cc curve_composer.cc      \
 	curve_conic_base.cc curve_conic.cc curve_flat.cc                \
 	curve_foucault.cc curve_grid.cc curve_parabola.cc               \
 	curve_polynomial.cc curve_rotational.cc curve_sphere.cc         \
 	curve_spline.cc curve_zernike.cc data_discrete_set.cc           \
 	data_grid.cc data_plot.cc data_sample_set.cc data_set1d.cc      \
 	data_set.cc light_ray.cc light_spectral_line.cc                 \
-	material_air.cc material_catalog.cc material.cc                 \
+	material_air.cc material_catalog.cc material_base.cc                 \
 	material_proxy.cc material_conrady.cc material_dielectric.cc    \
 	material_dispersion_table.cc material_herzberger.cc             \
 	material_metal.cc material_mirror.cc material_schott.cc         \
 	material_sellmeier.cc material_abbe.cc                          \
 	material_sellmeiermod.cc material_vacuum.cc math_matrix.cc      \
-	math_transform.cc shape.cc shape_composer.cc shape_disk.cc      \
+	math_transform.cc shape_base.cc shape_composer.cc shape_disk.cc      \
 	shape_ellipse.cc shape_elliptical_ring.cc shape_infinite.cc     \
 	shape_polygon.cc shape_rectangle.cc shape_regular_polygon.cc    \
 	shape_ring.cc sys_container.cc sys_element.cc sys_group.cc      \

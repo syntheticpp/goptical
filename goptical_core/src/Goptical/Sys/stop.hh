@@ -56,7 +56,7 @@ namespace _Goptical {
     public:
       /** Create an aperture stop surface. External radius is set to
           twice the shape max radius. */
-      Stop(const Math::VectorPair3 &p, const const_ref<Shape::Shape> &shape);
+      Stop(const Math::VectorPair3 &p, const const_ref<Shape::Base> &shape);
 
       /** Create a circular aperture stop surface with given
           radius. External radius is set to twice the shape max

@@ -27,7 +27,7 @@
 #define GOPTICAL_CURVE_COMPOSER_HXX_
 
 #include "Goptical/Math/transform.hxx"
-#include "curve.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 

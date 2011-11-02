@@ -108,13 +108,13 @@ namespace _Goptical {
                             const Trace::Ray &ray) const;
 
       /** set environment material */
-      void set_environment(const const_ref<Material::Material> &env);
+      void set_environment(const const_ref<Material::Base> &env);
 
       /** get environment material */
-      inline const Material::Material & get_environment() const;
+      inline const Material::Base & get_environment() const;
 
       /** @internal get environment material proxy */
-      inline const Material::Material & get_environment_proxy() const;
+      inline const Material::Base & get_environment_proxy() const;
 
       /** @internal Dump 3d transforms cache */
       void transform_cache_dump(std::ostream &o) const;

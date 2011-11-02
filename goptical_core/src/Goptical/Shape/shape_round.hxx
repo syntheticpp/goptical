@@ -26,7 +26,7 @@
 #ifndef GOPTICAL_SHAPE_ROUND_HXX_
 #define GOPTICAL_SHAPE_ROUND_HXX_
 
-#include "shape.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 

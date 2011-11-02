@@ -123,7 +123,7 @@ namespace _Goptical {
       inline void disable_temperature_coeff();
 
       /** Set glass measurement medium material. */
-      inline void set_measurement_medium(const const_ref<Material> &medium);
+      inline void set_measurement_medium(const const_ref<Base> &medium);
 
       /** Set wavelen validity range in @em nm */
       inline void set_wavelen_range(double low, double high);
@@ -170,7 +170,7 @@ namespace _Goptical {
       double    _high_wavelen;
 
       /** medium used during refractive index measurement */
-      const_ref<Material> _measurement_medium;
+      const_ref<Base> _measurement_medium;
     };
 
   }

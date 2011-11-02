@@ -30,7 +30,7 @@
 
 #include "Goptical/Math/vector_pair.hh"
 #include "Goptical/Math/transform.hh"
-#include "shape.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -51,7 +51,7 @@ namespace _Goptical {
        tessellation code doesn't give propser results.
      */
 
-    class Composer : public Shape
+    class Composer : public Base
     {
     public:
       class Attributes;
@@ -86,7 +86,7 @@ namespace _Goptical {
           The composed shape is the union between all shapes added
           with this function.
        */
-      Attributes & add_shape(const const_ref<Shape> &shape);
+      Attributes & add_shape(const const_ref<Base> &shape);
 
       /** Set ray distribution behavior. Default is to perform
           individual ray distribution on each composer shape.
@@ -108,7 +108,7 @@ namespace _Goptical {
       {
         friend class Composer;
 
-        Attributes(const const_ref<Shape> &shape);
+        Attributes(const const_ref<Base> &shape);
 
       public:
 
@@ -120,14 +120,14 @@ namespace _Goptical {
         inline Attributes & translate(const Math::Vector2 &offset);
 
         /** Peform boolean 'and' with the given shape */
-        Attributes & include(const const_ref<Shape> &shape);
+        Attributes & include(const const_ref<Base> &shape);
         /** Peform boolean 'and not' with the given shape */
-        Attributes & exclude(const const_ref<Shape> &shape);
+        Attributes & exclude(const const_ref<Base> &shape);
 
       private:
         bool inside(const Math::Vector2 &point) const;
 
-        const_ref<Shape>        _shape;
+        const_ref<Base>         _shape;
         bool                    _exclude;
         std::list <Attributes>  _list;
         Math::Transform<2>      _transform;

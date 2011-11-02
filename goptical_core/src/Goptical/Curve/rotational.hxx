@@ -27,7 +27,7 @@
 #define GOPTICAL_CURVE_RSYM_HXX_
 
 #include "Goptical/Math/vector.hxx"
-#include "curve.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 

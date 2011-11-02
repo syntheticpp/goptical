@@ -27,7 +27,7 @@
 #define GOPTICAL_SHAPE_COMPOSER_HXX_
 
 #include "Goptical/Math/transform.hxx"
-#include "shape.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 

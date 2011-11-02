@@ -40,7 +40,7 @@ namespace _Goptical {
     {
     }
 
-    void Grid::fit(const Curve &c)
+    void Grid::fit(const Base &c)
     {
       for (unsigned int x = 0; x < _data.get_count(0); x++)
         for (unsigned int y = 0; y < _data.get_count(1); y++)

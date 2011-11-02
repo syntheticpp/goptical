@@ -50,7 +50,7 @@ namespace _Goptical {
        refraction and reflection.
 
        If @ref Material::none is passed as material, it will be
-       replaced by system environement @ref Material::Material/Proxy
+       replaced by system environement @ref Material::Proxy
        {proxy} material when the optical surface becomes part of a
        @ref System.
     */
@@ -61,19 +61,19 @@ namespace _Goptical {
 
       /** Create an optical surface at specified location. */
       OpticalSurface(const Math::VectorPair3 &p,
-                     const const_ref<Curve::Curve> &curve,
-                     const const_ref<Shape::Shape> &shape,
-                     const const_ref<Material::Material> &left,
-                     const const_ref<Material::Material> &right);
+                     const const_ref<Curve::Base> &curve,
+                     const const_ref<Shape::Base> &shape,
+                     const const_ref<Material::Base> &left,
+                     const const_ref<Material::Base> &right);
 
       /** Create a circular aperture optical surface at specified
           location.
           @param ap_radius circular aperture radius.
       */
       OpticalSurface(const Math::VectorPair3 &p,
-                     const const_ref<Curve::Curve> &curve, double ap_radius,
-                     const const_ref<Material::Material> &left,
-                     const const_ref<Material::Material> &right);
+                     const const_ref<Curve::Base> &curve, double ap_radius,
+                     const const_ref<Material::Base> &left,
+                     const const_ref<Material::Base> &right);
 
       /** Create a spherical optical surface with circular aperture at
           specified location.
@@ -82,16 +82,16 @@ namespace _Goptical {
       */
       OpticalSurface(const Math::VectorPair3 &p,
                      double roc, double ap_radius,
-                     const const_ref<Material::Material> &left,
-                     const const_ref<Material::Material> &right);
+                     const const_ref<Material::Base> &left,
+                     const const_ref<Material::Base> &right);
 
       virtual ~OpticalSurface();
 
       /** Set surface left or right material */
-      void set_material(unsigned index, const const_ref<Material::Material> &m);
+      void set_material(unsigned index, const const_ref<Material::Base> &m);
 
       /** Get surface left or right material */
-      inline const Material::Material & get_material(unsigned id) const;
+      inline const Material::Base & get_material(unsigned id) const;
 
       /** Get surface natural color from material properties. */
       Io::Rgb get_color(const Io::Renderer &r) const;
@@ -124,7 +124,7 @@ namespace _Goptical {
                    Math::Vector3 &direction,
                    const Math::Vector3 &normal) const;
 
-      const_ref<Material::Material>     _mat[2];
+      const_ref<Material::Base>     _mat[2];
     };
 
   }

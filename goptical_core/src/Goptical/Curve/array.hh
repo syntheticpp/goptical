@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "curve.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -43,7 +43,7 @@ namespace _Goptical {
        This class provides a way to build an array of an other
        curve. It can be used to design lenses array.
      */
-    class Array : public Curve
+    class Array : public Base
     {
     public:
 
@@ -55,7 +55,7 @@ namespace _Goptical {
           Hexagonal,
         };
 
-      Array(const const_ref<Curve> &curve, double pitch, enum pattern_e p = Square);
+      Array(const const_ref<Base> &curve, double pitch, enum pattern_e p = Square);
 
       /** @override */
       double sagitta(const Math::Vector2 & xy) const;
@@ -72,7 +72,7 @@ namespace _Goptical {
       Math::Vector2 transform_hexagonal(const Math::Vector2 &v) const;
       Math::Vector2 transform_hexagonal_center(const Math::Vector2 &v) const;
 
-      const_ref<Curve> _curve;
+      const_ref<Base> _curve;
       double _pitch;
       transform_t _transform;
     };

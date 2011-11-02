@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "shape.hh"
+#include "base.hh"
 #include "shape_round.hh"
 
 namespace _Goptical {
@@ -42,7 +42,7 @@ namespace _Goptical {
        @internal
      */
 
-    class DiskBase : public Shape
+    class DiskBase : public Base
     {
     public:
       /** Set disk radius */

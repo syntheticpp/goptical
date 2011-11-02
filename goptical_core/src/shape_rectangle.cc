@@ -122,7 +122,7 @@ namespace _Goptical {
         }
 
         default:
-          Shape::get_pattern(f, d, unobstructed);
+          Base::get_pattern(f, d, unobstructed);
         }
     }
 

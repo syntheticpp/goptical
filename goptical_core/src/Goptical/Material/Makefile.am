@@ -16,11 +16,11 @@
 pkgincludedir = $(includedir)/Goptical/Material
 
 pkginclude_HEADERS = Abbe Air Catalog Conrady Dielectric                \
-        DispersionTable Herzberger Material abbe.hh abbe.hxx air.hh     \
+        DispersionTable Herzberger Base abbe.hh abbe.hxx air.hh     \
         air.hxx catalog.hh catalog.hxx conrady.hh conrady.hxx           \
         dielectric.hh dielectric.hxx dispersion_table.hh                \
-        dispersion_table.hxx herzberger.hh herzberger.hxx material.hh   \
-        material.hxx metal.hh metal.hxx mil.hh mil.hxx mirror.hh        \
+        dispersion_table.hxx herzberger.hh herzberger.hxx base.hh   \
+        base.hxx metal.hh metal.hxx mil.hh mil.hxx mirror.hh        \
         mirror.hxx proxy.hh proxy.hxx schott.hh schott.hxx              \
         sellmeier.hh sellmeier.hxx sellmeiermod.hh sellmeiermod.hxx     \
         solid.hh solid.hxx vacuum.hh vacuum.hxx Metal Mil Mirror        \

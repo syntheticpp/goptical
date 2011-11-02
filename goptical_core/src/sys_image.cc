@@ -32,8 +32,8 @@ namespace _Goptical {
   namespace Sys {
 
     Image::Image(const Math::VectorPair3 &p,
-                 const const_ref<Curve::Curve> &curve,
-                 const const_ref<Shape::Shape> &shape)
+                 const const_ref<Curve::Base> &curve,
+                 const const_ref<Shape::Base> &shape)
       : Surface(p, curve, shape)
     {
     }

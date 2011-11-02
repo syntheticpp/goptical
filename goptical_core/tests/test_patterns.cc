@@ -34,7 +34,7 @@
 
 #include <Goptical/Trace/Distribution>
 
-#include <Goptical/Shape/Shape>
+#include <Goptical/Shape/Base>
 #include <Goptical/Shape/Disk>
 #include <Goptical/Shape/Ring>
 #include <Goptical/Shape/Ellipse>
@@ -57,7 +57,7 @@ int main()
   struct shape_test_s
   {
     const char *name;
-    Shape::Shape *s;
+    Shape::Base *s;
     bool unobstructed;
   };
 

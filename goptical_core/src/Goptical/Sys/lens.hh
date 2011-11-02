@@ -46,7 +46,7 @@ namespace _Goptical {
        lens or lens group component in a convenient way.
 
        If @ref Material::none is passed as material, it will be
-       replaced by system environement @ref Material::Material/Proxy
+       replaced by system environement @ref Material::Proxy
        {proxy} material when the optical surface becomes part of a
        @ref System.
 
@@ -59,18 +59,18 @@ namespace _Goptical {
       /** Create an empty lens. Surfaces can be added with the @mref
           add_surface functions. */
       Lens(const Math::VectorPair3 &p, double offset = 0.,
-           const const_ref<Material::Material> &env = Material::none);
+           const const_ref<Material::Base> &env = Material::none);
 
       /** Create a lens at given position with given thickness,
           shapes, curvatures and glass. @see __add_surface1__ */
       Lens(const Math::VectorPair3 &p,
-           const const_ref<Curve::Curve> &curve0,
-           const const_ref<Shape::Shape> &shape0,
-           const const_ref<Curve::Curve> &curve1,
-           const const_ref<Shape::Shape> &shape1,
+           const const_ref<Curve::Base> &curve0,
+           const const_ref<Shape::Base> &shape0,
+           const const_ref<Curve::Base> &curve1,
+           const const_ref<Shape::Base> &shape1,
            double thickness0,
-           const const_ref<Material::Material> &glass0,
-           const const_ref<Material::Material> &env = Material::none);
+           const const_ref<Material::Base> &glass0,
+           const const_ref<Material::Base> &env = Material::none);
 
       /** Create a circular lens with flat or spherical surfaces at
           given position with given thickness, radius of curvature,
@@ -79,18 +79,18 @@ namespace _Goptical {
            double roc0, double ap_radius0,
            double roc1, double ap_radius1,
            double thickness,
-           const const_ref<Material::Material> &glass0,
-           const const_ref<Material::Material> &env = Material::none);
+           const const_ref<Material::Base> &glass0,
+           const const_ref<Material::Base> &env = Material::none);
 
       virtual ~Lens();
 
       /** @alias add_surface1
           Add an optical surface with given curve, shape, thickness and material.
       */
-      unsigned int add_surface(const const_ref<Curve::Curve> &curve,
-                               const const_ref<Shape::Shape> &shape,
+      unsigned int add_surface(const const_ref<Curve::Base> &curve,
+                               const const_ref<Shape::Base> &shape,
                                double thickness = 0.,
-                               const const_ref<Material::Material> &glass = Material::none);
+                               const const_ref<Material::Base> &glass = Material::none);
 
       /** @alias add_surface2
           Add a spherical or flat optical surface with circular aperture.
@@ -103,12 +103,12 @@ namespace _Goptical {
       unsigned int add_surface(double roc,
                                double ap_radius,
                                double thickness = 0.,
-                               const const_ref<Material::Material> &glass = Material::none);
+                               const const_ref<Material::Base> &glass = Material::none);
 
       /** @alias add_stop1
           Add an aperture stop with given, shape and thickness.
       */
-      void add_stop(const const_ref<Shape::Shape> &shape,
+      void add_stop(const const_ref<Shape::Base> &shape,
                     double thickness);
 
       /** @alias add_stop2
@@ -125,27 +125,27 @@ namespace _Goptical {
       double get_thickness(unsigned int index = 0) const;
 
       /** Set glass material */
-      void set_glass_material(const const_ref<Material::Material> &m,
+      void set_glass_material(const const_ref<Material::Base> &m,
                               unsigned int index = 0);
 
       /** Set left material */
-      void set_left_material(const const_ref<Material::Material> &m);
+      void set_left_material(const const_ref<Material::Base> &m);
       /** Set left material */
-      void set_right_material(const const_ref<Material::Material> &m);
+      void set_right_material(const const_ref<Material::Base> &m);
 
       /** Set left curve */
-      void set_left_curve(const const_ref<Curve::Curve> &c);
+      void set_left_curve(const const_ref<Curve::Base> &c);
       /** Set right curve */
-      void set_right_curve(const const_ref<Curve::Curve> &c);
+      void set_right_curve(const const_ref<Curve::Base> &c);
 
       /** Set curve of given surface index */
-      void set_curve(const const_ref<Curve::Curve> &c, unsigned int index);
+      void set_curve(const const_ref<Curve::Base> &c, unsigned int index);
 
       /** Set lens shape (all surfaces) */
-      void set_shape(const const_ref<Shape::Shape> &s);
+      void set_shape(const const_ref<Shape::Base> &s);
 
       /** Set lens shape of given surface index */
-      void set_shape(const const_ref<Shape::Shape> &s, unsigned int index);
+      void set_shape(const const_ref<Shape::Base> &s, unsigned int index);
 
       /** Get a reference to optical surface at given index */
       inline const OpticalSurface & get_surface(unsigned int index) const;
@@ -190,7 +190,7 @@ namespace _Goptical {
       vector_pool<OpticalSurface, 8> _surfaces;
 
       ref<Stop> _stop;
-      const_ref<Material::Material> _next_mat;
+      const_ref<Material::Base> _next_mat;
     };
 
   }

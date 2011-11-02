@@ -16,10 +16,10 @@
 pkgincludedir = $(includedir)/Goptical/Shape
 
 pkginclude_HEADERS = Composer Disk Ellipse EllipticalRing Infinite      \
-        Polygon Rectangle RegularPolygon Ring Shape composer.hh   \
+        Polygon Rectangle RegularPolygon Ring Base composer.hh   \
         composer.hxx disk.hh disk.hxx                 \
         ellipse.hh ellipse.hxx elliptical_ring.hh     \
-        elliptical_ring.hxx shape.hh shape.hxx                    \
+        elliptical_ring.hxx base.hh base.hxx                    \
         infinite.hh infinite.hxx polygon.hh           \
         polygon.hxx rectangle.hh rectangle.hxx        \
         regular_polygon.hh regular_polygon.hxx              \

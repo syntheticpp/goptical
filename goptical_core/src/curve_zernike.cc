@@ -684,7 +684,7 @@ namespace _Goptical {
       dxdy *= _scale;
     }
 
-    double Zernike::fit(const Curve &curve, const Trace::Distribution & d)
+    double Zernike::fit(const Base &curve, const Trace::Distribution & d)
     {
       // get distributed sample points on surface
       std::vector<Math::Vector2 > pattern;

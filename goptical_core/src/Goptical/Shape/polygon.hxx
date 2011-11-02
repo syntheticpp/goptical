@@ -25,7 +25,7 @@
 #ifndef GOPTICAL_SHAPE_POLYGON_HXX_
 #define GOPTICAL_SHAPE_POLYGON_HXX_
 
-#include "shape.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 

@@ -77,7 +77,7 @@ namespace _Goptical {
                         starget->get_transform_to(*this),
 
                         // _3
-                        const Material::Material *,
+                        const Material::Base *,
                         _mat.valid() ? _mat.ptr() : &get_system()->get_environment_proxy(),
 
                         // _4

@@ -32,7 +32,7 @@
 #include "Goptical/Sys/element.hh"
 #include "Goptical/Sys/surface.hh"
 
-#include "Goptical/Material/material.hh"
+#include "Goptical/Material/base.hh"
 
 namespace _Goptical {
 
@@ -56,7 +56,7 @@ namespace _Goptical {
 
       /** Set material where light rays are generated. system
           environment material is used by default. */
-      inline void set_material(const const_ref<Material::Material> &m);
+      inline void set_material(const const_ref<Material::Base> &m);
 
       /** Add a new wavelen for ray generation */
       inline void add_spectral_line(const Light::SpectralLine & l);
@@ -106,7 +106,7 @@ namespace _Goptical {
 
       std::vector<Light::SpectralLine>  _spectrum;
       double                            _min_intensity, _max_intensity;
-      const_ref<Material::Material>     _mat;
+      const_ref<Material::Base>     _mat;
     };
   }
 }

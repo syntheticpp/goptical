@@ -525,7 +525,7 @@ sequence:
 
       @example examples/curve_model/usercurve.cc:mycurve2
 
-      Although more functions from @ref Curve::Curve and @ref
+      Although more functions from @ref Curve::Base and @ref
       Curve::Rotational can be reimplemented to further improve model
       efficiency, this curve model can readily be used in an optical design.
 

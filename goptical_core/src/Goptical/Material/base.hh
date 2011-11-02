@@ -23,8 +23,8 @@
 */
 
 
-#ifndef GOPTICAL_MATERIAL_HH_
-#define GOPTICAL_MATERIAL_HH_
+#ifndef GOPTICAL_MATERIAL_BASE_HH_
+#define GOPTICAL_MATERIAL_BASE_HH_
 
 #include "Goptical/common.hh"
 
@@ -34,7 +34,7 @@ namespace _Goptical {
 
     /**
        @short Optical material base class.
-       @header Goptical/Material/Material
+       @header Goptical/Material/Base
        @module {Core}
        @main
 
@@ -43,13 +43,13 @@ namespace _Goptical {
        light.
      */
 
-    class Material : public ref_base<Material>
+    class Base : public ref_base<Base>
     {
     public:
       /** Material base constuctor. Set material temperature to 20. */
-      Material();
+      Base();
 
-      virtual ~Material();
+      virtual ~Base();
 
       /** Return true if material must be considered opaque for ray
           tracing */
@@ -72,17 +72,17 @@ namespace _Goptical {
       virtual double get_refractive_index(double wavelen) const = 0;
 
       /** Get material relative refractive index in given medium at specified wavelen in @em nm. */
-      inline double get_refractive_index(double wavelen, const Material &env) const;
+      inline double get_refractive_index(double wavelen, const Base &env) const;
 
       /** Get extinction coefficient. Subclasses _must_ provide this
           function or the get_internal_transmittance() function. */
       virtual double get_extinction_coef(double wavelen) const;
 
       /** Get reflectance at normal incidence */
-      virtual double get_normal_reflectance(const Material *from, double wavelen) const;
+      virtual double get_normal_reflectance(const Base *from, double wavelen) const;
 
       /** Get transmittance at normal incidence */
-      virtual double get_normal_transmittance(const Material *from, double wavelen) const;
+      virtual double get_normal_transmittance(const Base *from, double wavelen) const;
 
       /** Set material temperature in celcius */
       void set_temperature(double temp);
@@ -97,7 +97,7 @@ namespace _Goptical {
     };
 
     /** Material null pointer */
-    static const const_ref<Material> none;
+    static const const_ref<Base> none;
 
   }
 

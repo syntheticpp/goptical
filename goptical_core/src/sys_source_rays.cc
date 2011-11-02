@@ -141,7 +141,7 @@ namespace _Goptical {
     void SourceRays::generate_rays_simple(Trace::Result &result,
                                           const targets_t &entry) const
     {
-      const Material::Material *m = _mat.valid()
+      const Material::Base *m = _mat.valid()
         ? _mat.ptr() : &get_system()->get_environment_proxy();
 
       GOPTICAL_FOREACH(w, _wl_map)

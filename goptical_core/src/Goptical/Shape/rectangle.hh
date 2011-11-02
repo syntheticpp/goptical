@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "shape.hh"
+#include "base.hh"
 #include "Goptical/Math/vector.hh"
 
 namespace _Goptical {
@@ -42,7 +42,7 @@ namespace _Goptical {
        @main
      */
 
-    class Rectangle : public Shape
+    class Rectangle : public Base
     {
     public:
       /** Create a rectangle with given width and height */

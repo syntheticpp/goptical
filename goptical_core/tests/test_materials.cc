@@ -104,19 +104,19 @@ int main()
 
     sellm.set_measurement_medium(airm);
 
-    COMPARE( sellm.Material::get_refractive_index(400., airk), 1.6056515 , 1e-7);
-    COMPARE( sellm.Material::get_refractive_index(800., airk), 1.5738740 , 1e-7);
+    COMPARE( sellm.Base::get_refractive_index(400., airk), 1.6056515 , 1e-7);
+    COMPARE( sellm.Base::get_refractive_index(800., airk), 1.5738740 , 1e-7);
 
     airk.set_temperature(100.);
     sellm.set_temperature(100.);
 
-    COMPARE( sellm.Material::get_refractive_index(400., airk), 1.6061251 , 1e-7);
-    COMPARE( sellm.Material::get_refractive_index(800., airk), 1.5741071 , 1e-7);
+    COMPARE( sellm.Base::get_refractive_index(400., airk), 1.6061251 , 1e-7);
+    COMPARE( sellm.Base::get_refractive_index(800., airk), 1.5741071 , 1e-7);
 
     airk.set_pressure(10 * airk.std_pressure);
 
-    COMPARE( sellm.Material::get_refractive_index(400., airk), 1.6029774 , 1e-7);
-    COMPARE( sellm.Material::get_refractive_index(800., airk), 1.5711062 , 1e-7);
+    COMPARE( sellm.Base::get_refractive_index(400., airk), 1.6029774 , 1e-7);
+    COMPARE( sellm.Base::get_refractive_index(800., airk), 1.5711062 , 1e-7);
   }
 
   // test Abbe model
@@ -132,16 +132,16 @@ int main()
     Material::AbbeVd abbevd(1.582670, 46.47, .0001);
     abbevd.set_measurement_medium(airm);
 
-    COMPARE( abbevd.Material::get_refractive_index(400., airm), 1.605655 , 1e-6);
-    COMPARE( abbevd.Material::get_refractive_index(800., airm), 1.573845 , 1e-6);
+    COMPARE( abbevd.Base::get_refractive_index(400., airm), 1.605655 , 1e-6);
+    COMPARE( abbevd.Base::get_refractive_index(800., airm), 1.573845 , 1e-6);
 
     COMPARE( sellm.get_abbe_ve(), 46.18, 0.01);
 
     Material::AbbeVe abbeve(1.585648, 46.18, .0001);
     abbevd.set_measurement_medium(airm);
 
-    COMPARE( abbeve.Material::get_refractive_index(400., airm), 1.605655 , 1e-6);
-    COMPARE( abbeve.Material::get_refractive_index(800., airm), 1.573844 , 1e-6);
+    COMPARE( abbeve.Base::get_refractive_index(400., airm), 1.605655 , 1e-6);
+    COMPARE( abbeve.Base::get_refractive_index(800., airm), 1.573844 , 1e-6);
   }
 
   // test Mil model
@@ -151,8 +151,8 @@ int main()
     Material::Mil mil(583465);
     mil.set_measurement_medium(airm);
 
-    COMPARE( mil.Material::get_refractive_index(400., airm), 1.605 , 2e-3);
-    COMPARE( mil.Material::get_refractive_index(800., airm), 1.573 , 2e-3);
+    COMPARE( mil.Base::get_refractive_index(400., airm), 1.605 , 2e-3);
+    COMPARE( mil.Base::get_refractive_index(800., airm), 1.573 , 2e-3);
   }
 
   // test Conrady
@@ -161,8 +161,8 @@ int main()
     Material::Conrady cn(1.45217000E+000, 1.25800000E-002, 6.65900000E-005);
     cn.set_measurement_medium(airm);
 
-    COMPARE( cn.Material::get_refractive_index(400., airm), 1.4852651 , 2e-7);
-    COMPARE( cn.Material::get_refractive_index(800., airm), 1.4680404 , 2e-7);
+    COMPARE( cn.Base::get_refractive_index(400., airm), 1.4852651 , 2e-7);
+    COMPARE( cn.Base::get_refractive_index(800., airm), 1.4680404 , 2e-7);
   }
 
   return 0;

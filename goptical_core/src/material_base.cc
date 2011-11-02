@@ -23,24 +23,24 @@
 */
 
 #include <iostream>
-#include <Goptical/Material/Material>
+#include <Goptical/Material/Base>
 #include <Goptical/Io/Rgb>
  
 namespace _Goptical {
 
   namespace Material {
 
-    Material::Material()
+    Base::Base()
       : _temperature(20.0)
     {
     }
 
-    Material::~Material()
+    Base::~Base()
     {
     }
 
     // compute extinction coefficient from internal transmittance
-    double Material::get_extinction_coef(double wavelen) const
+    double Base::get_extinction_coef(double wavelen) const
     {
       // Beer-Lambert law
       // FIXME check this formula
@@ -48,7 +48,7 @@ namespace _Goptical {
     }
 
     // compute internal transmittance from extinction coefficient
-    double Material::get_internal_transmittance(double wavelen, double thickness) const
+    double Base::get_internal_transmittance(double wavelen, double thickness) const
     {
       // Beer-Lambert law
 
@@ -59,13 +59,13 @@ namespace _Goptical {
     }
 
     // compute internal transmittance from extinction coefficient
-    double Material::get_internal_transmittance(double wavelen) const
+    double Base::get_internal_transmittance(double wavelen) const
     {
       return get_internal_transmittance(wavelen, 1.0);
     }
 
     // default reflectance at normal incidence, valid for metal and dielectric material
-    double Material::get_normal_reflectance(const Material *from, double wavelen) const
+    double Base::get_normal_reflectance(const Base *from, double wavelen) const
     {
       // McGraw Hill, Handbook of optics, vol1, 1995, 5-10 (47)
       
@@ -78,7 +78,7 @@ namespace _Goptical {
     }
 
     // default transmittance at normal incidence, valid for non absorbing material
-    double Material::get_normal_transmittance(const Material *from, double wavelen) const
+    double Base::get_normal_transmittance(const Base *from, double wavelen) const
     {
       // McGraw Hill, Handbook of optics, vol1, 1995, 5-8 (23)
 
@@ -88,18 +88,18 @@ namespace _Goptical {
       return (4.0 * n0 * n1) / Math::square(n0 + n1);
     }
 
-    Io::Rgb Material::get_color() const
+    Io::Rgb Base::get_color() const
     {
       // FIXME color depends on material properties
       return Io::Rgb(1, 1, 1, 1);
     }
 
-    void Material::set_temperature(double temp)
+    void Base::set_temperature(double temp)
     {
       _temperature = temp;
     }
 
-    double Material::get_temperature() const
+    double Base::get_temperature() const
     {
       return _temperature;
     }

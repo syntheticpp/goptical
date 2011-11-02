@@ -28,7 +28,7 @@
 
 #include <algorithm>
 
-#include "shape.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 

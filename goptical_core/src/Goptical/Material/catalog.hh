@@ -31,7 +31,7 @@
 
 #include "Goptical/common.hh"
 
-#include "material.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -55,18 +55,18 @@ namespace _Goptical {
       inline void set_name(const std::string & name);
 
       /** Get material with given name */
-      inline const Material & get_material(const std::string &material_name);
+      inline const Base & get_material(const std::string &material_name);
 
       /** Add a material to catalog. material object will be deleted
           on catalog destruction if owner is set. */
-      void add_material(const std::string &material_name, const const_ref<Material> &material);
+      void add_material(const std::string &material_name, const const_ref<Base> &material);
 
       /** Remove a material from catalog */
       void del_material(const std::string &material_name);
 
     private:
 
-      typedef std::map<std::string, const_ref<Material> > catalog_map_t;
+      typedef std::map<std::string, const_ref<Base> > catalog_map_t;
 
       std::string _name;
       catalog_map_t _list;

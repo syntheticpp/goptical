@@ -25,12 +25,12 @@
 
 #include <Goptical/Sys/Surface>
 #include <Goptical/Sys/Element>
-#include <Goptical/Material/Material>
+#include <Goptical/Material/Base>
 
-#include <Goptical/Shape/Shape>
+#include <Goptical/Shape/Base>
 #include <Goptical/Shape/Ring>
 
-#include <Goptical/Curve/Curve>
+#include <Goptical/Curve/Base>
 
 #include <Goptical/Math/Vector>
 #include <Goptical/Math/Triangle>
@@ -51,8 +51,8 @@ namespace _Goptical {
   namespace Sys {
 
     Surface::Surface(const Math::VectorPair3 &p,
-                     const const_ref<Curve::Curve> &curve,
-                     const const_ref<Shape::Shape> &shape)
+                     const const_ref<Curve::Base> &curve,
+                     const const_ref<Shape::Base> &shape)
       : Element(p),
         _discard_intensity(0),
         _curve(curve),
@@ -70,7 +70,7 @@ namespace _Goptical {
     {
         DPP_DELEGATE2_OBJ(de, void, (const Math::Vector2 &v2d),
                           const Math::Vector3::put_delegate_t &, f, // _0
-                          const const_ref<Curve::Curve> &, _curve,    // _1
+                          const const_ref<Curve::Base> &, _curve,    // _1
         {
           _0(Math::Vector3(v2d, _1->sagitta(v2d)));
         });

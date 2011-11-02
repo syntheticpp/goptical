@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "shape.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -48,7 +48,7 @@ namespace _Goptical {
        class.
      */
 
-    class Infinite : public Shape
+    class Infinite : public Base
     {
     public:
       /** Create an infinite shape */

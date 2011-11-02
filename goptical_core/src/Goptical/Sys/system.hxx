@@ -141,12 +141,12 @@ namespace _Goptical {
       return *_index_map[index];
     }
 
-    const Material::Material & System::get_environment() const
+    const Material::Base & System::get_environment() const
     {
       return _env_proxy.get_material();
     }
 
-    const Material::Material & System::get_environment_proxy() const
+    const Material::Base & System::get_environment_proxy() const
     {
       return _env_proxy;
     }

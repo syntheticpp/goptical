@@ -29,7 +29,7 @@
 #include "Goptical/common.hh"
 
 #include "Goptical/Math/transform.hh"
-#include "curve.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -45,7 +45,7 @@ namespace _Goptical {
        of several base curves. Each base curve involved can be
        translated, rotated and scaled individually.
     */
-    class Composer : public Curve
+    class Composer : public Base
     {
     public:
 
@@ -75,7 +75,7 @@ namespace _Goptical {
         inline Attributes & xy_translate(const Math::Vector2 &offset);
 
       private:
-        const_ref<Curve> _curve;
+        const_ref<Base> _curve;
         Math::Transform<2> _transform;
         Math::Transform<2> _inv_transform;
 
@@ -88,7 +88,7 @@ namespace _Goptical {
       /** Add a base curve to use for composition. The returned
           Composer::Attributes object may be used to apply base curve
           transformations. */
-      Attributes & add_curve(const const_ref<Curve> &curve);
+      Attributes & add_curve(const const_ref<Base> &curve);
 
       double sagitta(const Math::Vector2 & xy) const;
       void derivative(const Math::Vector2 & xy, Math::Vector2 & dxdy) const;

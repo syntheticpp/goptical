@@ -23,19 +23,16 @@
 */
 
 
-#ifndef GOPTICAL_CURVE_HXX_
-#define GOPTICAL_CURVE_HXX_
+#ifndef GOPTICAL_MATERIAL_BASE_HXX_
+#define GOPTICAL_MATERIAL_BASE_HXX_
 
 namespace _Goptical {
 
-  namespace Curve {
+  namespace Material {
 
-    Curve::Curve()
+    double Base::get_refractive_index(double wavelen, const Base &env) const
     {
-    }
-
-    Curve::~Curve()
-    {
+      return get_refractive_index(wavelen) / env.get_refractive_index(wavelen);
     }
 
   }

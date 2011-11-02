@@ -150,9 +150,9 @@ namespace _Goptical {
       }
     };
 
-    const_ref<Shape::Shape> ImportZemax::get_ap_shape(const struct zemax_surface_s &surf, double unit_factor) const
+    const_ref<Shape::Base> ImportZemax::get_ap_shape(const struct zemax_surface_s &surf, double unit_factor) const
     {
-      const_ref<Shape::Shape> r;
+      const_ref<Shape::Base> r;
 
       switch (surf.ap_type)
         {
@@ -200,7 +200,7 @@ namespace _Goptical {
         }
     }
 
-    const_ref<Material::Material> ImportZemax::get_glass(Sys::System &sys, const struct zemax_surface_s &surf) const
+    const_ref<Material::Base> ImportZemax::get_glass(Sys::System &sys, const struct zemax_surface_s &surf) const
     {
       switch (surf.gl_type)
         {
@@ -591,13 +591,13 @@ namespace _Goptical {
       Math::Transform<3> coord;
       coord.reset();
 
-      const_ref<Material::Material> last_mat = sys->get_environment();
+      const_ref<Material::Base> last_mat = sys->get_environment();
 
       for (unsigned int i = 1; i < surf_array.size(); i++)
         {
           zemax_surface_s &surf = surf_array[i];
 
-          const_ref<Curve::Curve> curve;
+          const_ref<Curve::Base> curve;
 
           switch (surf.type)
             {
@@ -628,7 +628,7 @@ namespace _Goptical {
               break;
             }
 
-          const_ref<Shape::Shape> shape = get_ap_shape(surf, unit_factor);
+          const_ref<Shape::Base> shape = get_ap_shape(surf, unit_factor);
 
           ref<Sys::Element> element;
 
@@ -647,7 +647,7 @@ namespace _Goptical {
             }
           else
             {
-              const_ref<Material::Material> mat = get_glass(*sys, surf);
+              const_ref<Material::Base> mat = get_glass(*sys, surf);
 
               element = GOPTICAL_REFNEW(Sys::OpticalSurface, Math::vector3_0,
                                         curve, shape, last_mat, mat);

@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "material.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -44,7 +44,7 @@ namespace _Goptical {
        A global variable @ref vacuum is available.
     */
 
-    class Vacuum : public Material
+    class Vacuum : public Base
     {
     public:
       Vacuum();

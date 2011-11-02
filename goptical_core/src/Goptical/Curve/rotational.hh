@@ -31,7 +31,7 @@
 #include "Goptical/common.hh"
 
 #include "Goptical/Math/vector.hh"
-#include "curve.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -45,7 +45,7 @@ namespace _Goptical {
        This class defines rotationally symmetric curve interface and
        provide default implementation as generic non symmetric curve.
      */
-    class Rotational : public Curve
+    class Rotational : public Base
     {
     public:
       Rotational();

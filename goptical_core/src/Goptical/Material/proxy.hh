@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "material.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -40,13 +40,13 @@ namespace _Goptical {
        @module {Core}
      */
 
-    class Proxy : public Material
+    class Proxy : public Base
     {
     public:
-      Proxy(const const_ref<Material> &m);
+      Proxy(const const_ref<Base> &m);
 
-      inline void set_material(const const_ref<Material> &m);
-      inline const Material & get_material() const;
+      inline void set_material(const const_ref<Base> &m);
+      inline const Base & get_material() const;
 
       /** @override */
       bool is_opaque() const;
@@ -64,10 +64,10 @@ namespace _Goptical {
       double get_extinction_coef(double wavelen) const;
 
       /** @override */
-      double get_normal_reflectance(const Material *from, double wavelen) const;
+      double get_normal_reflectance(const Base *from, double wavelen) const;
 
       /** @override */
-      double get_normal_transmittance(const Material *from, double wavelen) const;
+      double get_normal_transmittance(const Base *from, double wavelen) const;
 
       /** @override */
       double get_temperature() const;
@@ -76,7 +76,7 @@ namespace _Goptical {
       Io::Rgb get_color() const;
 
     private:
-      const_ref<Material> _m;
+      const_ref<Base> _m;
     };
 
   }

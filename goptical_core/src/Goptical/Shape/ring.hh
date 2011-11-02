@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "shape.hh"
+#include "base.hh"
 #include "shape_round.hh"
 
 namespace _Goptical {
@@ -42,7 +42,7 @@ namespace _Goptical {
        @internal
      */
 
-    class RingBase : public Shape
+    class RingBase : public Base
     {
     public:
       /** Set ring external radius and hole radius */

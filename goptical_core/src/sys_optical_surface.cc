@@ -41,10 +41,10 @@ namespace _Goptical {
   namespace Sys {
 
     OpticalSurface::OpticalSurface(const Math::VectorPair3 &p,
-                                   const const_ref<Curve::Curve> &curve,
-                                   const const_ref<Shape::Shape> &shape,
-                                   const const_ref<Material::Material> &left,
-                                   const const_ref<Material::Material> &right)
+                                   const const_ref<Curve::Base> &curve,
+                                   const const_ref<Shape::Base> &shape,
+                                   const const_ref<Material::Base> &left,
+                                   const const_ref<Material::Base> &right)
       : Surface(p, curve, shape)
     {
       _mat[0] = left;
@@ -53,10 +53,10 @@ namespace _Goptical {
 
     OpticalSurface::OpticalSurface(const Math::VectorPair3 &p,
                                    double roc, double ap_radius,
-                                   const const_ref<Material::Material> &left,
-                                   const const_ref<Material::Material> &right)
-      : Surface(p, roc == 0. ? const_ref<Curve::Curve>(Curve::flat)
-                             : const_ref<Curve::Curve>(ref<Curve::Sphere>::create(roc)),
+                                   const const_ref<Material::Base> &left,
+                                   const const_ref<Material::Base> &right)
+      : Surface(p, roc == 0. ? const_ref<Curve::Base>(Curve::flat)
+                             : const_ref<Curve::Base>(ref<Curve::Sphere>::create(roc)),
                 ref<Shape::Disk>::create(ap_radius))
     {
       _mat[0] = left;
@@ -64,9 +64,9 @@ namespace _Goptical {
     }
 
     OpticalSurface::OpticalSurface(const Math::VectorPair3 &p,
-                                   const const_ref<Curve::Curve> &curve, double ap_radius,
-                                   const const_ref<Material::Material> &left,
-                                   const const_ref<Material::Material> &right)
+                                   const const_ref<Curve::Base> &curve, double ap_radius,
+                                   const const_ref<Material::Base> &left,
+                                   const const_ref<Material::Base> &right)
       : Surface(p, curve, ref<Shape::Disk>::create(ap_radius))
     {
       _mat[0] = left;
@@ -125,8 +125,8 @@ namespace _Goptical {
 
       bool right_to_left = intersect.normal().z() > 0;
 
-      const Material::Material *prev_mat = _mat[right_to_left].ptr();
-      const Material::Material *next_mat = _mat[!right_to_left].ptr();
+      const Material::Base *prev_mat = _mat[right_to_left].ptr();
+      const Material::Base *next_mat = _mat[!right_to_left].ptr();
 
       // check ray didn't "escaped" from its material
       if (prev_mat != incident.get_material())
@@ -189,8 +189,8 @@ namespace _Goptical {
 
       bool right_to_left = intersect.normal().z() > 0;
 
-      const Material::Material *prev_mat = _mat[right_to_left].ptr();
-      const Material::Material *next_mat = _mat[!right_to_left].ptr();
+      const Material::Base *prev_mat = _mat[right_to_left].ptr();
+      const Material::Base *next_mat = _mat[!right_to_left].ptr();
 
       // check ray didn't "escaped" from its material
       if (prev_mat != incident.get_material())
@@ -255,7 +255,7 @@ namespace _Goptical {
 
     }
 
-    void OpticalSurface::set_material(unsigned index, const const_ref<Material::Material> &m)
+    void OpticalSurface::set_material(unsigned index, const const_ref<Material::Base> &m)
     {
       assert(index < 2);
 

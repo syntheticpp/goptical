@@ -150,7 +150,7 @@ namespace _Goptical {
               _0(v);
           });
 
-          Shape::get_pattern(f2, d, unobstructed);
+          Base::get_pattern(f2, d, unobstructed);
           break;
         }
 

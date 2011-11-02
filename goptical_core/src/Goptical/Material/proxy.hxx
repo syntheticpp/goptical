@@ -26,18 +26,18 @@
 #ifndef GOPTICAL_MATERIAL_PROXY_HXX_
 #define GOPTICAL_MATERIAL_PROXY_HXX_
 
-#include "material.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 
   namespace Material {
 
-    void Proxy::set_material(const const_ref<Material> &m)
+    void Proxy::set_material(const const_ref<Base> &m)
     {
       _m = m;
     }
 
-    const Material & Proxy::get_material() const
+    const Base & Proxy::get_material() const
     {
       return *_m;
     }

@@ -508,7 +508,7 @@ namespace _Goptical {
       @short 2d shapes used for surface contours */
   namespace Shape {
 
-    class Shape;
+    class Base;
     class Ring;
     class Infinite;
 
@@ -556,7 +556,7 @@ namespace _Goptical {
         @short Abbe model for optical glass material */
     typedef Abbe<AbbeVeFormula> AbbeVe;
 
-    class Material;
+    class Base;
     class Catalog;
     class Vacuum;
     class Mirror;
@@ -606,7 +606,7 @@ namespace _Goptical {
   /** @module {Core}
       @short Surface curvature models */
   namespace Curve {
-    class Curve;
+    class Base;
     class Rotational;
     class Sphere;
     class Flat;

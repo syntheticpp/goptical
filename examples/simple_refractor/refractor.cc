@@ -29,7 +29,7 @@
 
 #include <Goptical/Math/Vector>
 
-#include <Goptical/Material/Material>
+#include <Goptical/Material/Base>
 #include <Goptical/Material/Sellmeier>
 
 #include <Goptical/Sys/System>

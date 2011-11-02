@@ -15,10 +15,10 @@
 
 pkgincludedir = $(includedir)/Goptical/Curve
 
-pkginclude_HEADERS = Array Composer Conic ConicBase Curve array.hh      \
+pkginclude_HEADERS = Array Composer Conic ConicBase Base array.hh      \
         array.hxx composer.hh composer.hxx conic_base.hh                \
         conic_base.hxx conic.hh conic.hxx flat.hh flat.hxx              \
-        foucault.hh foucault.hxx grid.hh grid.hxx curve.hh curve.hxx    \
+        foucault.hh foucault.hxx grid.hh grid.hxx base.hh base.hxx    \
         parabola.hh parabola.hxx polynomial.hh polynomial.hxx           \
         curve_roc.hh curve_roc.hxx rotational.hh rotational.hxx         \
         sphere.hh sphere.hxx spline.hh spline.hxx zernike.hh            \

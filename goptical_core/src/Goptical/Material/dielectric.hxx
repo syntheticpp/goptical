@@ -68,7 +68,7 @@ namespace _Goptical {
       _temp_model = ThermalNone;
     }
 
-    void Dielectric::set_measurement_medium(const const_ref<Material> &medium)
+    void Dielectric::set_measurement_medium(const const_ref<Base> &medium)
     {
       assert(medium.ptr() != this);
       _measurement_medium = medium;

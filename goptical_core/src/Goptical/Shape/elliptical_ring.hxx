@@ -26,7 +26,7 @@
 #ifndef GOPTICAL_SHAPE_ELLIPTICALRING_HXX_
 #define GOPTICAL_SHAPE_ELLIPTICALRING_HXX_
 
-#include "shape.hxx"
+#include "base.hxx"
 
 #include <cassert>
 

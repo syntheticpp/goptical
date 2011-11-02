@@ -29,7 +29,7 @@ namespace _Goptical {
 
   namespace Material {
 
-    Proxy::Proxy(const const_ref<Material> &m)
+    Proxy::Proxy(const const_ref<Base> &m)
       : _m(m)
     {
     }
@@ -59,12 +59,12 @@ namespace _Goptical {
       return _m->get_extinction_coef(wavelen);
     }
 
-    double Proxy::get_normal_reflectance(const Material *from, double wavelen) const
+    double Proxy::get_normal_reflectance(const Base *from, double wavelen) const
     {
       return _m->get_normal_reflectance(from, wavelen);
     }
 
-    double Proxy::get_normal_transmittance(const Material *from, double wavelen) const
+    double Proxy::get_normal_transmittance(const Base *from, double wavelen) const
     {
       return _m->get_normal_transmittance(from, wavelen);
     }

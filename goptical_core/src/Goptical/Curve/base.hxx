@@ -23,14 +23,14 @@
 */
 
 
-#ifndef GOPTICAL_SHAPE_HXX_
-#define GOPTICAL_SHAPE_HXX_
+#ifndef GOPTICAL_CURVE_BASE_HXX_
+#define GOPTICAL_CURVE_BASE_HXX_
 
 namespace _Goptical {
 
-  namespace Shape {
+  namespace Curve {
 
-    Shape::Shape()
+    Base::~Base()
     {
     }
 

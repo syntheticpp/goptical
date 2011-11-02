@@ -32,13 +32,13 @@
 #include "Goptical/Sys/element.hxx"
 #include "Goptical/Sys/surface.hxx"
 
-#include "Goptical/Material/material.hxx"
+#include "Goptical/Material/base.hxx"
 
 namespace _Goptical {
 
   namespace Sys {
 
-    void Source::set_material(const const_ref<Material::Material> &m)
+    void Source::set_material(const const_ref<Material::Base> &m)
     {
       _mat = m;
     }

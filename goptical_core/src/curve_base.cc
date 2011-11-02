@@ -22,7 +22,7 @@
 
 */
 
-#include <Goptical/Curve/Curve>
+#include <Goptical/Curve/Base>
 #include <Goptical/Math/Vector>
 #include <Goptical/Math/VectorPair>
 
@@ -34,7 +34,7 @@ namespace _Goptical {
 
     // Default curve/ray intersection iterative method
 
-    bool Curve::intersect(Math::Vector3 &point, const Math::VectorPair3 &ray) const
+    bool Base::intersect(Math::Vector3 &point, const Math::VectorPair3 &ray) const
     {
       Math::VectorPair3 p;
 
@@ -88,7 +88,7 @@ namespace _Goptical {
 
     struct curve_gsl_params_s
     {
-      const Curve *c;
+      const Base *c;
       double x, y;
     };
 
@@ -106,7 +106,7 @@ namespace _Goptical {
       return p->c->sagitta(Math::Vector2(p->x, y));
     }
 
-    void Curve::derivative(const Math::Vector2 & xy, Math::Vector2 & dxdy) const
+    void Base::derivative(const Math::Vector2 & xy, Math::Vector2 & dxdy) const
     {
       double abserr;
       struct curve_gsl_params_s params;
@@ -125,7 +125,7 @@ namespace _Goptical {
       gsl_deriv_central(&gsl_func, xy.y(), 1e-6, &dxdy.y(), &abserr);
     }
 
-    void Curve::normal(Math::Vector3 &normal, const Math::Vector3 &point) const
+    void Base::normal(Math::Vector3 &normal, const Math::Vector3 &point) const
     {
       Math::Vector2 d;
 

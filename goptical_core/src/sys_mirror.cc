@@ -34,11 +34,11 @@ namespace _Goptical {
   namespace Sys {
 
     Mirror::Mirror(const Math::VectorPair3 &p,
-                   const const_ref<Curve::Curve> &curve,
-                   const const_ref<Shape::Shape> &shape,
+                   const const_ref<Curve::Base> &curve,
+                   const const_ref<Shape::Base> &shape,
                    bool light_from_left,
-                   const const_ref<Material::Material> &metal,
-                   const const_ref<Material::Material> &air)
+                   const const_ref<Material::Base> &metal,
+                   const const_ref<Material::Base> &air)
       : OpticalSurface(p, curve, shape,
                        light_from_left ? air : metal,
                        light_from_left ? metal : air)
@@ -46,11 +46,11 @@ namespace _Goptical {
     }
 
     Mirror::Mirror(const Math::VectorPair3 &p,
-                   const const_ref<Curve::Curve> &curve,
+                   const const_ref<Curve::Base> &curve,
                    double ap_radius,
                    bool light_from_left,
-                   const const_ref<Material::Material> &metal,
-                   const const_ref<Material::Material> &air)
+                   const const_ref<Material::Base> &metal,
+                   const const_ref<Material::Base> &air)
       : OpticalSurface(p, curve, ap_radius,
                        light_from_left ? air : metal,
                        light_from_left ? metal : air)
@@ -61,10 +61,10 @@ namespace _Goptical {
                    double roc, double sc,
                    double ap_radius,
                    bool light_from_left,
-                   const const_ref<Material::Material> &metal,
-                   const const_ref<Material::Material> &air)
-      : OpticalSurface(p, roc == 0. ? const_ref<Curve::Curve>(Curve::flat)
-                                    : const_ref<Curve::Curve>(ref<Curve::Conic>::create(roc, sc)),
+                   const const_ref<Material::Base> &metal,
+                   const const_ref<Material::Base> &air)
+      : OpticalSurface(p, roc == 0. ? const_ref<Curve::Base>(Curve::flat)
+                                    : const_ref<Curve::Base>(ref<Curve::Conic>::create(roc, sc)),
                        ref<Shape::Disk>::create(ap_radius),
                        light_from_left ? air : metal,
                        light_from_left ? metal : air)

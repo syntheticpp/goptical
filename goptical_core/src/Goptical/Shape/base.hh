@@ -23,8 +23,8 @@
 */
 
 
-#ifndef GOPTICAL_SHAPE_HH_
-#define GOPTICAL_SHAPE_HH_
+#ifndef GOPTICAL_SHAPE_BASE_HH_
+#define GOPTICAL_SHAPE_BASE_HH_
 
 #include "Goptical/common.hh"
 
@@ -37,7 +37,7 @@ namespace _Goptical {
 
     /**
        @short Base class for contour 2d shapes
-       @header Goptical/Shape/Shape
+       @header Goptical/Shape/Base
        @module {Core}
        @main
 
@@ -46,12 +46,12 @@ namespace _Goptical {
        optical surfaces and provides distribution pattern for ray
        tracing.
      */
-    class Shape : public ref_base<Shape>
+    class Base : public ref_base<Base>
     {
     public:
-      inline Shape();
+      inline Base();
 
-      virtual ~Shape() {}
+      virtual ~Base() {}
 
       /** Check if the (x,y) 2d point is inside 2d shape area */
       virtual bool inside(const Math::Vector2 &point) const = 0;

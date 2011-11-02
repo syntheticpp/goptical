@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "material.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -45,7 +45,7 @@ namespace _Goptical {
        A global @ref mirror variable is available.
      */
 
-    class Mirror : public Material
+    class Mirror : public Base
     {
     public:
       Mirror();

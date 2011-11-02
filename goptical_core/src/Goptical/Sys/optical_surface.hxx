@@ -27,13 +27,13 @@
 #define GOPTICAL_OPTICALSURFACE_HXX_
 
 #include "Goptical/Sys/surface.hxx"
-#include "Goptical/Material/material.hh"
+#include "Goptical/Material/base.hh"
 
 namespace _Goptical {
 
   namespace Sys {
 
-    const Material::Material & OpticalSurface::get_material(unsigned index) const
+    const Material::Base & OpticalSurface::get_material(unsigned index) const
     {
       assert(index < 2);
       return *_mat[index];

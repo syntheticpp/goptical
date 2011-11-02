@@ -55,7 +55,7 @@ namespace _Goptical {
 
       GOPTICAL_ACCESSORS(const Sys::Element *, creator, "element which generated this ray.");
 
-      GOPTICAL_ACCESSORS(const Material::Material *, material, "material ray is propagated in.");
+      GOPTICAL_ACCESSORS(const Material::Base *, material, "material ray is propagated in.");
 
       GOPTICAL_ACCESSORS(double, intercept_intensity, "ray intensity at interception point.");
 
@@ -99,7 +99,7 @@ namespace _Goptical {
       double                    _intercept_intensity;   // intersection point intensity
       double                    _len;           // ray length
       const Sys::Element        *_creator;      // element which generated this ray
-      const Material::Material  *_material;     // material
+      const Material::Base  *_material;     // material
       Sys::Element              *_i_element;    // intersect element
       Ray                       *_parent;       // ray which generated this one
       Ray                       *_child;        // pointer to generated ray

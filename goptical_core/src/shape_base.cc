@@ -24,7 +24,7 @@
 
 #include <cstdlib>
 
-#include <Goptical/Shape/Shape>
+#include <Goptical/Shape/Base>
 #include <Goptical/Math/Vector>
 #include <Goptical/Trace/Distribution>
 
@@ -39,7 +39,7 @@ namespace _Goptical {
         f(v_);                                  \
     }
 
-    void Shape::get_pattern(const Math::Vector2::put_delegate_t  &f,
+    void Base::get_pattern(const Math::Vector2::put_delegate_t  &f,
                             const Trace::Distribution &d,
                             bool unobstructed) const
     {
@@ -205,7 +205,7 @@ namespace _Goptical {
         }
     }
 
-    double Shape::get_hole_radius(const Math::Vector2 &dir) const
+    double Base::get_hole_radius(const Math::Vector2 &dir) const
     {
       return 0.;
     }

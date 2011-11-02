@@ -29,7 +29,7 @@
 #include "Goptical/common.hh"
 
 #include "Goptical/Trace/distribution.hh"
-#include "curve.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -55,7 +55,7 @@ namespace _Goptical {
        @url http://www.optics.arizona.edu/jcwyant/Zernikes/ZernikePolynomials.htm
        and @url http://www.astro-electronic.de/faq2.htm
     */
-    class Zernike : public Curve
+    class Zernike : public Base
     {
       static const Trace::Distribution default_dist;
 
@@ -113,7 +113,7 @@ namespace _Goptical {
           distribution is used to choose sampling points on
           curve. Terms state is adjusted according to current
           threshold */
-      double fit(const Curve &c, const Trace::Distribution & d = default_dist);
+      double fit(const Base &c, const Trace::Distribution & d = default_dist);
 
       double sagitta(const Math::Vector2 & xy) const;
       void derivative(const Math::Vector2 & xy, Math::Vector2 & dxdy) const;

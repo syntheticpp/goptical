@@ -23,8 +23,8 @@
 */
 
 
-#ifndef GOPTICAL_CURVE_HH_
-#define GOPTICAL_CURVE_HH_
+#ifndef GOPTICAL_CURVE_BASE_HH_
+#define GOPTICAL_CURVE_BASE_HH_
 
 #include "Goptical/common.hh"
 
@@ -34,7 +34,7 @@ namespace _Goptical {
 
     /**
        @short Base class for surface curvature models
-       @header Goptical/Curve/Curve
+       @header Goptical/Curve/Base
        @module {Core}
        @main
 
@@ -50,11 +50,10 @@ namespace _Goptical {
 
        @xsee {tuto_usercurve}
     */
-    class Curve : public ref_base<Curve>
+    class Base : public ref_base<Base>
     {
     public:
-      inline Curve();
-      virtual inline ~Curve();
+      virtual inline ~Base();
 
       /** Get curve sagitta at specified point */
       virtual double sagitta(const Math::Vector2 & xy) const = 0;

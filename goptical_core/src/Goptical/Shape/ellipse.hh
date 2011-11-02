@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "shape.hh"
+#include "base.hh"
 #include "shape_round.hh"
 
 namespace _Goptical {
@@ -44,7 +44,7 @@ namespace _Goptical {
        @see EllipticalRing
      */
 
-    class EllipseBase : public Shape
+    class EllipseBase : public Base
     {
     public:
       /** Set ellipse radius along x and y axis */

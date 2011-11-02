@@ -26,7 +26,7 @@
 #ifndef GOPTICAL_CURVE_GRID_HXX_
 #define GOPTICAL_CURVE_GRID_HXX_
 
-#include "curve.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 

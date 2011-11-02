@@ -30,7 +30,7 @@ namespace _Goptical {
 
   namespace Curve {
 
-    Composer::Attributes & Composer::add_curve(const const_ref<Curve> &curve)
+    Composer::Attributes & Composer::add_curve(const const_ref<Base> &curve)
     {
       Attributes attr;
 

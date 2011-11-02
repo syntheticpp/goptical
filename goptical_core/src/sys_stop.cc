@@ -31,9 +31,9 @@
 #include <Goptical/Math/Vector>
 #include <Goptical/Math/VectorPair>
 
-#include <Goptical/Shape/Shape>
+#include <Goptical/Shape/Base>
 #include <Goptical/Shape/Disk>
-#include <Goptical/Curve/Curve>
+#include <Goptical/Curve/Base>
 #include <Goptical/Curve/Flat>
 
 #include <Goptical/Io/Renderer>
@@ -42,7 +42,7 @@ namespace _Goptical {
 
   namespace Sys {
 
-    Stop::Stop(const Math::VectorPair3 &p, const const_ref<Shape::Shape> &shape)
+    Stop::Stop(const Math::VectorPair3 &p, const const_ref<Shape::Base> &shape)
       : Surface(p, Curve::flat, shape),
         _intercept_reemit(false)
     {

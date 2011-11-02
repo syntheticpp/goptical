@@ -80,7 +80,7 @@ namespace _Goptical {
       update_version();
     }
 
-    void System::set_environment(const const_ref<Material::Material> &env)
+    void System::set_environment(const const_ref<Material::Base> &env)
     {
       update_version();
       _env_proxy.set_material(env);

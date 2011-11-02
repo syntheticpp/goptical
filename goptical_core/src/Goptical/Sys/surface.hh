@@ -31,8 +31,8 @@
 #include "Goptical/common.hh"
 
 #include "Goptical/Sys/element.hh"
-#include "Goptical/Shape/shape.hh"
-#include "Goptical/Curve/curve.hh"
+#include "Goptical/Shape/base.hh"
+#include "Goptical/Curve/base.hh"
 
 namespace _Goptical {
 
@@ -61,20 +61,20 @@ namespace _Goptical {
     public:
       /** Create a surface element at given location. */
       Surface(const Math::VectorPair3 &p,
-              const const_ref<Curve::Curve> &curve,
-              const const_ref<Shape::Shape> &shape);
+              const const_ref<Curve::Base> &curve,
+              const const_ref<Shape::Base> &shape);
 
       virtual ~Surface();
 
       /** Set surface curve */
-      inline void set_curve(const const_ref<Curve::Curve> &c);
+      inline void set_curve(const const_ref<Curve::Base> &c);
       /** Get surface curve */
-      inline const Curve::Curve & get_curve() const;
+      inline const Curve::Base & get_curve() const;
 
       /** Set surface shape */
-      inline void set_shape(const const_ref<Shape::Shape> &s);
+      inline void set_shape(const const_ref<Shape::Base> &s);
       /** Get surface shape */
-      inline const Shape::Shape & get_shape() const;
+      inline const Shape::Base & get_shape() const;
 
       /** Get intersection point and normal to surface at
           intersection. Return false if no intersection occured.
@@ -147,8 +147,8 @@ namespace _Goptical {
                                           Trace::rays_queue_t *input) const;
 
       double                    _discard_intensity;
-      const_ref<Curve::Curve>   _curve;
-      const_ref<Shape::Shape>   _shape;
+      const_ref<Curve::Base>   _curve;
+      const_ref<Shape::Base>   _shape;
     };
 
   }

@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "curve.hh"
+#include "base.hh"
 #include "Goptical/Data/grid.hh"
 
 namespace _Goptical {
@@ -50,7 +50,7 @@ namespace _Goptical {
        The @ref Spline curve model is preferred when dealing
        with @ref Rotational {rotationally symmetric curves}.
     */
-    class Grid : public Curve
+    class Grid : public Base
     {
     public:
       /** Creates a grid curve with n*n sample points defined over the
@@ -68,7 +68,7 @@ namespace _Goptical {
       /** Set grid values to best fit an other curve. Gradient data
           will be extracted only if the interpolation have been set to
           Data::BicubicDeriv previously */
-      void fit(const Curve &c);
+      void fit(const Base &c);
 
       double sagitta(const Math::Vector2 & xy) const;
       void derivative(const Math::Vector2 & xy, Math::Vector2 & dxdy) const;

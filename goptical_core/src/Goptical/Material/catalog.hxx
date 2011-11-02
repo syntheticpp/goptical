@@ -42,7 +42,7 @@ namespace _Goptical {
       _name = name;
     }
 
-    inline const Material & Catalog::get_material(const std::string &material_name)
+    inline const Base & Catalog::get_material(const std::string &material_name)
     {
       catalog_map_t::iterator i = _list.find(material_name);
 

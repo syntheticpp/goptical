@@ -30,8 +30,8 @@
 
 #include "Goptical/common.hh"
 
-#include "Goptical/Shape/shape.hh"
-#include "Goptical/Material/material.hh"
+#include "Goptical/Shape/base.hh"
+#include "Goptical/Material/base.hh"
 #include "Goptical/Material/catalog.hh"
 #include "Goptical/Material/dielectric.hh"
 #include "Goptical/Sys/system.hh"
@@ -81,8 +81,8 @@ namespace _Goptical {
 
       static std::string basename(const std::string &path);
 
-      const_ref<Shape::Shape> get_ap_shape(const struct zemax_surface_s &surf, double unit_factor) const;
-      const_ref<Material::Material> get_glass(Sys::System &sys, const struct zemax_surface_s &surf) const;
+      const_ref<Shape::Base> get_ap_shape(const struct zemax_surface_s &surf, double unit_factor) const;
+      const_ref<Material::Base> get_glass(Sys::System &sys, const struct zemax_surface_s &surf) const;
 
       typedef std::map<std::string, ref<Material::Catalog> > cat_map_t;
 

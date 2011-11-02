@@ -26,7 +26,7 @@
 #ifndef GOPTICAL_MATERIAL_SOLID_HXX_
 #define GOPTICAL_MATERIAL_SOLID_HXX_
 
-#include "material.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 

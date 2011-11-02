@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "shape.hh"
+#include "base.hh"
 #include "Goptical/Math/vector_pair.hh"
 
 namespace _Goptical {
@@ -49,7 +49,7 @@ namespace _Goptical {
        @see RegularPolygon
      */
 
-    class Polygon : public Shape
+    class Polygon : public Base
     {
     public:
       /** Create a polygon with given radius and edge count */

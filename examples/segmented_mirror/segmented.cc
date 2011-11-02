@@ -34,12 +34,12 @@
 #include <Goptical/Sys/Group>
 #include <Goptical/Sys/SourcePoint>
 
-#include <Goptical/Shape/Shape>
+#include <Goptical/Shape/Base>
 #include <Goptical/Shape/Disk>
 #include <Goptical/Shape/Ring>
 #include <Goptical/Shape/RegularPolygon>
 
-#include <Goptical/Curve/Curve>
+#include <Goptical/Curve/Base>
 #include <Goptical/Curve/Composer>
 #include <Goptical/Curve/Conic>
 
@@ -64,8 +64,8 @@ class HexSegMirror : public Sys::Group
 public:
 
   HexSegMirror(const Math::VectorPair3 &pos,
-               const const_ref<Curve::Curve> &curve,
-               const const_ref<Shape::Shape> &shape,
+               const const_ref<Curve::Base> &curve,
+               const const_ref<Shape::Base> &shape,
                double seg_radius, double separation)
     : Sys::Group(pos)
   {

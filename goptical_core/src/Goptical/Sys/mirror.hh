@@ -68,21 +68,21 @@ namespace _Goptical {
           curve. Default is to reflect light coming from left using
           @ref Material::mirror material. */
       Mirror(const Math::VectorPair3 &p,
-             const const_ref<Curve::Curve> &curve,
-             const const_ref<Shape::Shape> &shape,
+             const const_ref<Curve::Base> &curve,
+             const const_ref<Shape::Base> &shape,
              bool light_from_left = true,
-             const const_ref<Material::Material> &metal = Material::mirror,
-             const const_ref<Material::Material> &env = Material::none);
+             const const_ref<Material::Base> &metal = Material::mirror,
+             const const_ref<Material::Base> &env = Material::none);
 
       /** Create a circular aperture mirror at given position with
           given curve. Default is to reflect light coming from left
           using @ref Material::mirror material. */
       Mirror(const Math::VectorPair3 &p,
-             const const_ref<Curve::Curve> &curve,
+             const const_ref<Curve::Base> &curve,
              double ap_radius,
              bool light_from_left = true,
-             const const_ref<Material::Material> &metal = Material::mirror,
-             const const_ref<Material::Material> &env = Material::none);
+             const const_ref<Material::Base> &metal = Material::mirror,
+             const const_ref<Material::Base> &env = Material::none);
 
       /** Create a conic mirror with circular aperture at given
           position. Default is to reflect light coming from left using @ref
@@ -91,8 +91,8 @@ namespace _Goptical {
              double roc, double sc,
              double ap_radius,
              bool light_from_left = true,
-             const const_ref<Material::Material> &metal = Material::mirror,
-             const const_ref<Material::Material> &env = Material::none);
+             const const_ref<Material::Base> &metal = Material::mirror,
+             const const_ref<Material::Base> &env = Material::none);
 
     };
 

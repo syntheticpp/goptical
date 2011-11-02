@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "material.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -42,7 +42,7 @@ namespace _Goptical {
        This class is the base class for all solid material models.
      */
 
-    class Solid : public Material
+    class Solid : public Base
     {
     public:
       inline Solid();

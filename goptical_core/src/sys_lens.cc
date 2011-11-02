@@ -46,7 +46,7 @@ namespace _Goptical {
   namespace Sys {
 
     Lens::Lens(const Math::VectorPair3 &p, double offset,
-               const const_ref<Material::Material> &env)
+               const const_ref<Material::Base> &env)
       : Group(p),
         _last_pos(offset),
         _surfaces(_surfaces_storage),
@@ -55,13 +55,13 @@ namespace _Goptical {
     }
 
     Lens::Lens(const Math::VectorPair3 &p,
-               const const_ref<Curve::Curve> &curve0,
-               const const_ref<Shape::Shape> &shape0,
-               const const_ref<Curve::Curve> &curve1,
-               const const_ref<Shape::Shape> &shape1,
+               const const_ref<Curve::Base> &curve0,
+               const const_ref<Shape::Base> &shape0,
+               const const_ref<Curve::Base> &curve1,
+               const const_ref<Shape::Base> &shape1,
                double thickness0,
-               const const_ref<Material::Material> &glass0,
-               const const_ref<Material::Material> &env)
+               const const_ref<Material::Base> &glass0,
+               const const_ref<Material::Base> &env)
       : Group(p),
         _last_pos(0),
         _surfaces(_surfaces_storage),
@@ -76,8 +76,8 @@ namespace _Goptical {
                double roc0, double ap_radius0,
                double roc1, double ap_radius1,
                double thickness0,
-               const const_ref<Material::Material> &glass0,
-               const const_ref<Material::Material> &env)
+               const const_ref<Material::Base> &glass0,
+               const const_ref<Material::Base> &env)
       : Group(p),
         _last_pos(0),
         _surfaces(_surfaces_storage),
@@ -92,10 +92,10 @@ namespace _Goptical {
     {
     }
 
-    unsigned int Lens::add_surface(const const_ref<Curve::Curve> &curve,
-                                   const const_ref<Shape::Shape> &shape,
+    unsigned int Lens::add_surface(const const_ref<Curve::Base> &curve,
+                                   const const_ref<Shape::Base> &shape,
                                    double thickness,
-                                   const const_ref<Material::Material> &glass)
+                                   const const_ref<Material::Base> &glass)
     {
       assert(thickness >= 0.);
 
@@ -110,9 +110,9 @@ namespace _Goptical {
 
     unsigned int Lens::add_surface(double roc, double radius,
                                    double thickness,
-                                   const const_ref<Material::Material> &glass)
+                                   const const_ref<Material::Base> &glass)
     {
-      const_ref<Curve::Curve> curve;
+      const_ref<Curve::Base> curve;
 
       if (roc == 0.)
         curve = Curve::flat;
@@ -122,7 +122,7 @@ namespace _Goptical {
       return add_surface(curve, ref<Shape::Disk>::create(radius), thickness, glass);
     }
 
-    void Lens::add_stop(const const_ref<Shape::Shape> &shape, double thickness)
+    void Lens::add_stop(const const_ref<Shape::Base> &shape, double thickness)
     {
       if (_stop.valid())
         throw Error("Can not add more than one stop per Lens");
@@ -160,45 +160,45 @@ namespace _Goptical {
       _last_pos += diff;
     }
 
-    void Lens::set_left_material(const const_ref<Material::Material> &m)
+    void Lens::set_left_material(const const_ref<Material::Base> &m)
     {
       _surfaces.front().set_material(0, m);
     }
 
-    void Lens::set_right_material(const const_ref<Material::Material> &m)
+    void Lens::set_right_material(const const_ref<Material::Base> &m)
     {
       _surfaces.back().set_material(1, m);
     }
 
-    void Lens::set_glass_material(const const_ref<Material::Material> &m,
+    void Lens::set_glass_material(const const_ref<Material::Base> &m,
                                   unsigned int index)
     {
       _surfaces.at(index+1).set_material(0, m);
       _surfaces.at(index).set_material(1, m);
     }
 
-    void Lens::set_left_curve(const const_ref<Curve::Curve> &c)
+    void Lens::set_left_curve(const const_ref<Curve::Base> &c)
     {
       _surfaces.front().set_curve(c);
     }
 
-    void Lens::set_right_curve(const const_ref<Curve::Curve> &c)
+    void Lens::set_right_curve(const const_ref<Curve::Base> &c)
     {
       _surfaces.back().set_curve(c);
     }
 
-    void Lens::set_curve(const const_ref<Curve::Curve> &c, unsigned int index)
+    void Lens::set_curve(const const_ref<Curve::Base> &c, unsigned int index)
     {
       _surfaces.at(index).set_curve(c);
     }
 
-    void Lens::set_shape(const const_ref<Shape::Shape> &s)
+    void Lens::set_shape(const const_ref<Shape::Base> &s)
     {
       for (unsigned int i = 0; i < _surfaces.size(); i++)
         _surfaces[i].set_shape(s);
     }
 
-    void Lens::set_shape(const const_ref<Shape::Shape> &s, unsigned int index)
+    void Lens::set_shape(const const_ref<Shape::Base> &s, unsigned int index)
     {
       _surfaces.at(index).set_shape(s);
     }
@@ -222,7 +222,7 @@ namespace _Goptical {
           const Surface & left = _surfaces[i];
           const Surface & right = _surfaces[i+1];
 
-          const Shape::Shape &s = left.get_shape();
+          const Shape::Base &s = left.get_shape();
           Io::Rgb color = left.get_color(r);
 
           if (&s != &right.get_shape())

@@ -29,29 +29,29 @@
 #include <cassert>
 
 #include "Goptical/Sys/element.hxx"
-#include "Goptical/Shape/shape.hxx"
-#include "Goptical/Curve/curve.hxx"
+#include "Goptical/Shape/base.hxx"
+#include "Goptical/Curve/base.hxx"
 
 namespace _Goptical {
 
   namespace Sys {
 
-    void Surface::set_curve(const const_ref<Curve::Curve> &c)
+    void Surface::set_curve(const const_ref<Curve::Base> &c)
     {
       _curve = c;
     }
 
-    const Curve::Curve & Surface::get_curve() const
+    const Curve::Base & Surface::get_curve() const
     {
       return *_curve;
     }
 
-    void Surface::set_shape(const const_ref<Shape::Shape> &s)
+    void Surface::set_shape(const const_ref<Shape::Base> &s)
     {
       _shape = s;
     }
 
-    const Shape::Shape & Surface::get_shape() const
+    const Shape::Base & Surface::get_shape() const
     {
       return *_shape;
     }

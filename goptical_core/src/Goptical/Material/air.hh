@@ -28,7 +28,7 @@
 
 #include "Goptical/common.hh"
 
-#include "material.hh"
+#include "base.hh"
 
 namespace _Goptical {
 
@@ -54,7 +54,7 @@ namespace _Goptical {
      */
 
     template <enum AirFormula m = AirBirch94Formula>
-    class Air : public Material
+    class Air : public Base
     {
     public:
 

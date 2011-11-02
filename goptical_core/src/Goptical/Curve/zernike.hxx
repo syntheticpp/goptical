@@ -28,7 +28,7 @@
 
 #include <cassert>
 
-#include "curve.hxx"
+#include "base.hxx"
 
 namespace _Goptical {
 
