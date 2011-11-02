@@ -53,9 +53,7 @@ namespace _Goptical {
       bool intersect(Math::Vector3 &point, const Math::VectorPair3 &ray) const;
       void normal(Math::Vector3 &normal, const Math::Vector3 &point) const;
 
-      double sagitta(const Math::Vector2 & xy) const;
       double sagitta(double r) const;
-      double derivative(double x, double y) const;
       double derivative(double r) const;
     };
 

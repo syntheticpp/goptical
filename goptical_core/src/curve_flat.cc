@@ -41,17 +41,7 @@ namespace _Goptical {
       return 0;
     }
 
-    double Flat::sagitta(const Math::Vector2 & xy) const
-    {
-      return 0;
-    }
-
     double Flat::derivative(double r) const
-    {
-      return 1.0;
-    }
-
-    double Flat::derivative(double x, double y) const
     {
       return 1.0;
     }
