@@ -15,8 +15,8 @@
 
 EXTRA_DIST = conventions.mkdoc description.mkdoc fdl-1.3.mkdoc          \
         intro.mkdoc modules.mkdoc template.mkdoc top.mkdoc              \
-        tutorial.mkdoc web.mkdoc mkdoc.conf web.conf headers.mkdoc      \
-        texinfo_head.tmpl html_title.tmpl
+        tutorial.mkdoc mkdoc.conf headers.mkdoc texinfo_head.tmpl       \
+        html_title.tmpl
 
 EXTRA_DIST += catenary_spot.png coordinates.png dist_patterns.png       \
         hexseg_mirror.png newton3d.png newton_wynne4_layout.png         \
