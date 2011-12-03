@@ -41,8 +41,8 @@ namespace _Goptical {
        @module {Core}
 
        This class defines an interface for rendering drivers which rely
-       on viewport windows, scaling and projection. It's designed to
-       be used as a base class such renderer; this mainly includes
+       on viewport windows, scaling and 2d projection operations. It's designed to
+       be used as a base class for such renderers; this mainly includes
        pixel based output renderers.
 
        Renderers which write output in vector format in world
