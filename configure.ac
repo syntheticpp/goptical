@@ -25,13 +25,13 @@ AC_DISABLE_STATIC
 AC_PROG_LIBTOOL
 AC_LANG(C++)
 
-CXXFLAGS+=" -Wall "
+CXXFLAGS="$CXXFLAGS -Wall "
 
 AC_ARG_ENABLE(debug, AC_HELP_STRING(--enable-debug, [Enable debug and asserts]), enable_debug=yes)
 if test "x$enable_debug" = "xyes" ; then
-   CXXFLAGS+=" -g "
+   CXXFLAGS="$CXXFLAGS -g "
 else
-   CPPFLAGS+=" -DNDEBUG "
+   CPPFLAGS="$CPPFLAGS -DNDEBUG "
 fi
 
 AC_CHECK_LIB(m, cosf, , AC_MSG_ERROR([can not find m library]))
@@ -45,32 +45,40 @@ AC_ARG_ENABLE(dime, AC_HELP_STRING(--disable-dime, [Disable use of Dime DXF rend
 AC_ARG_ENABLE(gd, AC_HELP_STRING(--disable-gd, [Disable use of libGd renderer]), GOPTICAL_HAVE_GD=false)
 AC_ARG_ENABLE(plplot, AC_HELP_STRING(--disable-plplot, [Disable use of PlPlot renderer]), GOPTICAL_HAVE_PLPLOT=false)
 
+#
+# opengl library check
+#
+
 if test x$GOPTICAL_HAVE_GL != xfalse ; then
-AC_CHECK_HEADER(GL/gl.h, [
-  AC_CHECK_HEADER(GL/glu.h, [
-    AC_CHECK_HEADER(GL/glut.h, [
+AC_CHECK_HEADER(GL/gl.h, [ AC_CHECK_LIB(GL, glLoadIdentity, [
+  AC_CHECK_HEADER(GL/glu.h, [ AC_CHECK_LIB(GLU, gluPerspective, [
+    AC_CHECK_HEADER(GL/glut.h, [ AC_CHECK_LIB(glut, glutInit, [
       GOPTICAL_HAVE_GL=true
       AC_DEFINE(GOPTICAL_HAVE_GL, 1, [gl rendering library enabled])
-      LDFLAGS+=" -lglut -lGL -lGLU "
-    ])
-  ])
-])
+      LIBS="$LIBS -lglut -lGL -lGLU "
+    ])])
+  ])])
+])])
 fi
 AM_CONDITIONAL(GOPTICAL_HAVE_GL, test x$GOPTICAL_HAVE_GL = xtrue)
 
+#
+# X11 library check
+#
+
 if test x$GOPTICAL_HAVE_X11 != xfalse ; then
-AC_CHECK_HEADER(X11/Xlib.h, [
+AC_CHECK_HEADER(X11/Xlib.h, [ AC_CHECK_LIB(X11, XOpenDisplay, [
   GOPTICAL_HAVE_X11=true
   AC_DEFINE(GOPTICAL_HAVE_X11, 1, [x11 rendering library enabled])
-  LDFLAGS+=" -lX11 "
-])
+  LIBS="$LIBS -lX11 "
+])])
 fi
 AM_CONDITIONAL(GOPTICAL_HAVE_X11, test x$GOPTICAL_HAVE_X11 = xtrue)
 
 abs_srcdir=`cd $srcdir ; pwd`
 abs_builddir=`pwd`
-ac_configure_args+=" --with-goptical-core-include=$abs_srcdir/goptical_core/src "
-ac_configure_args+=" --with-goptical-core-lib=$abs_builddir/goptical_core/src/libgoptical.la "
+ac_configure_args="$ac_configure_args --with-goptical-core-include=$abs_srcdir/goptical_core/src "
+ac_configure_args="$ac_configure_args --with-goptical-core-lib=$abs_builddir/goptical_core/src/libgoptical.la "
 
 AC_CONFIG_FILES([
   Makefile

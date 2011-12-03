@@ -27,7 +27,7 @@ AC_DISABLE_STATIC
 AC_PROG_LIBTOOL
 AC_LANG(C++)
 
-CXXFLAGS+=" -Wall "
+CXXFLAGS="$CXXFLAGS -Wall "
 CXXFLAGS="$GOPTICAL_CXXFLAGS $CXXFLAGS"
 LDFLAGS="$GOPTICAL_LDFLAGS $LDFLAGS"
 
@@ -36,9 +36,9 @@ AM_CONDITIONAL(TESTS, test x$disable_tests != xyes)
 
 AC_ARG_ENABLE(debug, AC_HELP_STRING(--enable-debug, [Enable debug and asserts]), enable_debug=yes)
 if test "x$enable_debug" = "xyes" ; then
-   CXXFLAGS+=" -g "
+   CXXFLAGS="$CXXFLAGS -g "
 else
-   CPPFLAGS+=" -DNDEBUG "
+   CPPFLAGS="$CPPFLAGS -DNDEBUG "
 fi
 
 AC_ARG_WITH([goptical-core-include],
