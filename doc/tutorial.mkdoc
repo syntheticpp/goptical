@@ -358,7 +358,7 @@ sequence:
 
       @section {Using the telescope model}
 
-        Usage of the @ref Design::NewtonTelescope {newton telescope
+        Usage of the @ref Design::Telescope::Newton {newton telescope
         model class} is presented here as an example of parameterized
         models which contain simple components. The following example
         shows how to build an optical design composed of a light source, the

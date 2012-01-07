@@ -256,7 +256,7 @@ namespace _Goptical {
           direction vectors.
 
           @return position of the intersection point on the line.
-          @see pl_intersect_ln_scale
+          @see pl_ln_intersect_scale
       */
       inline Vector<3> pl_ln_intersect(const VectorPair<3> &line) const;
 
@@ -266,7 +266,7 @@ namespace _Goptical {
           direction vectors.
 
           @return scale factor of the line direction vector from line origin.
-          @see pl_intersect_ln
+          @see pl_ln_intersect
       */
       inline double pl_ln_intersect_scale(const VectorPair<3> &line) const;
 
